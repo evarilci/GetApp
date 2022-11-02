@@ -45,7 +45,17 @@ class GATextView: GAView{
     @IBOutlet private weak var textField: UITextField!
     @IBOutlet private weak var errorLbl: UILabel!
     
+    override func commonInit() {
+        super.commonInit()
+        textField.delegate = self
+    }
     
     
+}
+// MARK: - UITextFieldDelegate
+extension GATextView: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("\(title) begin edditing")
+    }
     
 }

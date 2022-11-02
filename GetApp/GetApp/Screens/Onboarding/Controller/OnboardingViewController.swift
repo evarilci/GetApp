@@ -42,6 +42,17 @@ final class OnboardingViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let defaults = UserDefaults.standard
+        let key = "isViewed"
+        if defaults.bool(forKey: key) == false {
+            defaults.set(true, forKey: key)
+        } else {
+            goToAuth()
+        }
+    }
+    
     // MARK: Button's actions
     @IBAction func btnClicked(_ sender: UIButton) {
         

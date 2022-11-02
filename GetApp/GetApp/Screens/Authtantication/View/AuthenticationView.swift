@@ -28,7 +28,7 @@ final class AuthenticationView: UIView{
     
     var mailAddress: String?{
         get{
-            if let email = userNameTextField.text{
+            if let email = emailTextField.text{
                 return email
             }
             return nil
@@ -47,12 +47,10 @@ final class AuthenticationView: UIView{
 
         // Add all views in stack view
         let stackView = UIStackView(arrangedSubviews: [segmentedControl,
-                                                       userNameTextField,
+                                                       emailTextField,
                                                        passwordTextField,
                                                        passwordRetypeTextField,
                                                        signInSignUpButton])
-        
-
         
         stackView.axis = .vertical
         stackView.spacing = 20.0
@@ -115,17 +113,15 @@ final class AuthenticationView: UIView{
             }
     }
     
-//    func addSegmentedControl(){
-//        addSubview(segmentedControl)
-//
-//        segmentedControl.snp.makeConstraints { make in
-//            make.top.equalTo(titleLabel.snp.bottom).offset(32.0)
-//            make.centerX.equalTo(safeAreaLayoutGuide.snp.centerX)
-//        }
-//    }
+
+    private let genderField: GATextView = {
+        let textField = GATextView()
+        return textField
+    }()
     
-    // MARK: - Define email textField
-    private let userNameTextField = {
+     //MARK: - Define email textField
+   
+    private let emailTextField = {
         let textfield = UITextField()
         let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
         textfield.leftViewMode = .always
@@ -140,17 +136,11 @@ final class AuthenticationView: UIView{
         textfield.layer.borderWidth = 1.0
         textfield.backgroundColor = .white
         textfield.textColor = .darkGray
+
         return textfield
     }()
     
-//    func addUserNameTextField(){
-//        addSubview(userNameTextField)
-//
-//        userNameTextField.snp.makeConstraints { make in
-//            make.top.equalTo(segmentedControl.snp.bottom).offset(32.0)
-//            make.leading.equalTo(safeAreaLayoutGuide.snp.leading).offset(32.0)
-//        }
-//    }
+    
     
     // MARK: - Define Password Text Field
     private let passwordTextField = {
@@ -194,35 +184,7 @@ final class AuthenticationView: UIView{
         return textfield
     }()
 
-//    // MARK: - Define Job Text Field
-//    private let jobTextLabel = {
-//        let textfield = UITextField()
-//        textfield.placeholder = "Job Title"
-//        let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
-//        textfield.leftViewMode = .always
-//        textfield.leftView = spacerView
-//        textfield.autocapitalizationType = .none
-//        textfield.autocorrectionType = .no
-//        textfield.tintColor = .black
-//        textfield.layer.masksToBounds = true
-//        textfield.layer.cornerRadius = 8.0
-//        textfield.layer.borderColor = UIColor.darkGray.cgColor
-//        textfield.layer.borderWidth = 1.0
-//        textfield.backgroundColor = .white
-//        textfield.textColor = .darkGray
-//        return textfield
-//    }()
-//
-    // MARK: - Add Password Text Field
-//    func addPasswordTextField(){
-//        addSubview(passwordTextField)
-//
-//        passwordTextField.snp.makeConstraints { make in
-//            make.top.equalTo(userNameTextField.snp.bottom).offset(32)
-//            make.leading.equalTo(safeAreaLayoutGuide.snp.leading).offset(16.0)
-//            make.trailing.equalTo(safeAreaLayoutGuide.snp.trailing).offset(-16.0)
-//        }
-//    }
+
     
     // MARK: - Define UIButtons
     let signInSignUpButton = {
@@ -235,7 +197,5 @@ final class AuthenticationView: UIView{
         button.setTitle("Sign In", for: .normal)
         return button
     }()
-    
-    
 }
 

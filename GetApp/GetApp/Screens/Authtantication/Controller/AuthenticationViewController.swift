@@ -10,7 +10,7 @@
 import UIKit
 import FirebaseAuth
 
-class AuthenticationViewController: UIViewController {
+final class AuthenticationViewController: UIViewController {
 
     let authenticationView = AuthenticationView()
     let authenticationViewModel = AuthenticationViewModel()
@@ -46,7 +46,6 @@ class AuthenticationViewController: UIViewController {
         authenticationViewModel.changeHandler = {[weak self] change in
             switch change {
             case .didErrorOccurred(let error):
-                print("\(error.localizedDescription)")
                 self!.showAlert(title: "Error", message: error.localizedDescription, cancelButtonTitle: "Close", handler: nil)
             case .didSignUpSuccessful:
                 print("Sign Up Successfull")
@@ -55,7 +54,10 @@ class AuthenticationViewController: UIViewController {
                 self?.navigationController?.present(tabBarViewController, animated: true)
             }
         }
+        
     }
+    
+    
 
     
     //  MARK: Button Methods
@@ -72,56 +74,3 @@ class AuthenticationViewController: UIViewController {
 extension AuthenticationViewController: AlertPresentable {
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//import UIKit
-//
-//class AuthViewController1: UIViewController {
-////    let authenticationView = AuthenticationView()
-////    let authenticationViewModel = AuthenticationViewModel()
-//
-//    private lazy var signInView: SignInView = {
-//        let view = SignInView()
-//        return view
-//    }()
-//
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        view.backgroundColor = .blue
-//        view.addSubview(signInView)
-//        signInView.center = view.center
-////        signInView.snp.makeConstraints { make in
-////            make.height.equalTo(643)
-////            make.leading.equalTo(16)
-////            make.trailing.equalTo(-16)
-////            make.center.equalTo(view.snp.center)
-////        }
-//
-//
-//
-//
-//
-//    }
-//
-//
-//
-//}
