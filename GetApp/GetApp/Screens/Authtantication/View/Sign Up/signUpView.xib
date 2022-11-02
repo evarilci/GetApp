@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpView" customModule="GetApp" customModuleProvider="target">
+            <connections>
+                <outlet property="birthdayTextView" destination="FiD-Dt-rME" id="SNS-6t-lkU"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="E70-Vp-uZd"/>
+                <outlet property="emailTextView" destination="9xm-UL-HPM" id="FhM-JC-SCx"/>
+                <outlet property="genderTextView" destination="GZN-St-Dhe" id="udF-oB-hR0"/>
+                <outlet property="passwordAgainTextView" destination="S0C-zn-ytC" id="qee-mJ-qD4"/>
+                <outlet property="passwordTextView" destination="buf-oT-Vmb" id="0yX-cK-hgx"/>
+                <outlet property="usernameTextView" destination="gNf-Ct-sQH" id="z4w-nM-2S8"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="643"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9xo-r4-w7U">
+                    <rect key="frame" x="16" y="16" width="358" height="611"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZl-or-h9H">
+                            <rect key="frame" x="0.0" y="0.0" width="358" height="64"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="64" id="HfY-5I-YLB"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gNf-Ct-sQH" customClass="GATextView" customModule="GetApp" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="72" width="358" height="76"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" priority="250" constant="76" id="mBo-Ix-f8X"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Username"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xm-UL-HPM" customClass="GATextView" customModule="GetApp" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="156" width="358" height="76"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" priority="250" constant="76" id="HdM-bi-a8h"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="E - mail"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GZN-St-Dhe" customClass="GATextView" customModule="GetApp" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="240" width="358" height="76"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" priority="250" constant="76" id="zGg-gm-kUJ"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Gender"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FiD-Dt-rME" customClass="GATextView" customModule="GetApp" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="324" width="358" height="76"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" priority="250" constant="76" id="XPH-ev-8SV"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Date of Birth"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="buf-oT-Vmb" customClass="GATextView" customModule="GetApp" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="408" width="358" height="76"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" priority="250" constant="76" id="1KW-n5-d7R"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Password"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S0C-zn-ytC" customClass="GATextView" customModule="GetApp" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="492" width="358" height="76"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" priority="250" constant="76" id="Bvq-kO-EB0"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Password Again"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PhB-hu-UQb">
+                            <rect key="frame" x="0.0" y="576" width="358" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="GXt-hb-JXi"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Do you already have an account?"/>
+                            <connections>
+                                <action selector="alreadyHaveAccountClicked:" destination="-1" eventType="touchUpInside" id="3IC-a5-yin"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="9xo-r4-w7U" secondAttribute="bottom" constant="16" id="9Uw-Rn-R6F"/>
+                <constraint firstItem="9xo-r4-w7U" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="9ca-st-RgF"/>
+                <constraint firstAttribute="trailing" secondItem="9xo-r4-w7U" secondAttribute="trailing" constant="16" id="O8U-ri-Rbv"/>
+                <constraint firstItem="9xo-r4-w7U" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="Yip-eG-Tlv"/>
+                <constraint firstAttribute="trailing" secondItem="9xo-r4-w7U" secondAttribute="trailing" constant="16" id="oWp-42-YOh"/>
+                <constraint firstItem="9xo-r4-w7U" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="rzD-FX-Ouw"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="140" y="-50.829383886255918"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
