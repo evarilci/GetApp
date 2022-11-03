@@ -37,7 +37,7 @@ final class HomeCollectionView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Methods
+    // MARK: - Constraints method
     private func setupCollectionViewLayout() {
         addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -48,17 +48,12 @@ final class HomeCollectionView: UIView {
             collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
-    
+    // MARK: - Set delegate method
     func setCollectionViewDelegate(_ delegate: UICollectionViewDelegate,
                                    andDataSource dataSource: UICollectionViewDataSource) {
         collectionView.delegate = delegate
         collectionView.dataSource = dataSource
     }
     
-    func refresh() {
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
-    }
 
 }

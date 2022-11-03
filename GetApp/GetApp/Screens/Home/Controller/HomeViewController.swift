@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class HomeViewController: UIViewController {
-   
+    // MARK: - PROPERTIES
     private let viewModel = HomeViewModel()
     private let Mainview = HomeCollectionView()
 
+    
+    // MARK: LIFE CYCLE METHODS
     override func viewDidLoad() {
         super.viewDidLoad()
         view = Mainview
@@ -21,7 +24,7 @@ final class HomeViewController: UIViewController {
     }
     
 }
-
+// MARK: - HomeViewModelDelegate
 extension HomeViewController: HomeViewModelDelegate {
     func errorOcurred(_ error: Error) {
         print(error.localizedDescription)
@@ -34,10 +37,11 @@ extension HomeViewController: HomeViewModelDelegate {
     
 }
 
-
+// MARK: - UICollectionViewDelegate
 extension HomeViewController: UICollectionViewDelegate {
     
 }
+// MARK: - UICollectionViewDataSource
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewModel.numberOfRows
@@ -47,6 +51,11 @@ extension HomeViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeCollectionViewCell
         cell.title = viewModel.titleForRow(indexPath.row)
+        cell.imageView.kf.setImage(with: viewModel.imageForRow(indexPath.row)) { _ in
+            collectionView.reloadData()
+        }
+        
+        
         
         return cell
     }

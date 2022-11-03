@@ -19,6 +19,7 @@ protocol HomeViewModelProtocol {
     var delegate: HomeViewModelDelegate? { get set }
     var numberOfRows: Int { get }
     func titleForRow(_ row: Int) -> String?
+    func imageForRow(_ row: Int) -> URL?
     func fetchProduct()
 }
 
@@ -41,6 +42,11 @@ final class HomeViewModel: HomeViewModelProtocol {
         products[row].title
     }
     
+    func imageForRow(_ row: Int) -> URL? {
+        return products[row].imageURL
+        
+    }
+    
     func fetchProduct() {
         provider.request(.getProducts) { [weak self]  result in
             switch result {
@@ -54,9 +60,7 @@ final class HomeViewModel: HomeViewModelProtocol {
                 } catch  {
                     self?.delegate?.errorOcurred(error)
                 }
-                
             }
         }
     }
-    
 }

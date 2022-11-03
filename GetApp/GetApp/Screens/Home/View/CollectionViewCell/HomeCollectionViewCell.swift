@@ -8,6 +8,8 @@
 import UIKit
 
 final class HomeCollectionViewCell: UICollectionViewCell {
+    
+    // MARK: - PROPERTIES
     var image: UIImage? {
         didSet {
             imageView.image = image
@@ -44,6 +46,7 @@ final class HomeCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    // MARK: - INIT
     override init(frame: CGRect) {
         super.init(frame: frame)
         

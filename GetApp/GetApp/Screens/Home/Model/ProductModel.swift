@@ -21,3 +21,16 @@ struct Rating: Decodable {
     let rate: Double?
     let count: Int?
 }
+
+extension Product {
+    var imageURL: URL {
+        guard let image = image,
+              let imageUrl = URL(string: image) else {
+                let image = "https://www.computerhope.com/jargon/b/black.jpg",
+                    iconUrl = URL(string: image)
+                return iconUrl!
+            }
+            return imageUrl
+        }
+        
+    }
