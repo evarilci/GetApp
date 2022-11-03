@@ -25,7 +25,7 @@ final class HomeCollectionViewCell: UICollectionViewCell {
         layer.startPoint = CGPoint(x: 0.5, y: 0.0)
         layer.endPoint = CGPoint(x: 0.5, y: 1.0)
         layer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
-        layer.locations = [0.0, 1.0]
+        layer.locations = [0.5, 1.0]
         return layer
     }()
     
@@ -38,7 +38,7 @@ final class HomeCollectionViewCell: UICollectionViewCell {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 21.0)
+        label.font = .systemFont(ofSize: 12.0)
         label.textColor = .white
         label.numberOfLines = .zero
         return label

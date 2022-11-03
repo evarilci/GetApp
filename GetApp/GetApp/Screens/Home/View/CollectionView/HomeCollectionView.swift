@@ -7,10 +7,10 @@
 
 import UIKit
 
-class HomeCollectionView: UIView {
+final class HomeCollectionView: UIView {
     // MARK: - Properties
-    private let cellInset: CGFloat = 8.0
-    private let cellMultiplier: CGFloat = 0.5
+    private let cellInset: CGFloat = 2.0
+    private let cellMultiplier: CGFloat = 0.3
     private var cellDimension: CGFloat {
         .screenWidth * cellMultiplier - cellInset
     }
