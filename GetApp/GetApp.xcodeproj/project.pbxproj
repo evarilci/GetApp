@@ -214,10 +214,10 @@
 		E5888E6B2909BD6300045FB3 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				E5888E402909BD4C00045FB3 /* Main.storyboard */,
 				E5BA674F2912F2CA00C7C311 /* Profile */,
 				E5BA674B2912F2A800C7C311 /* Search */,
 				E5BA67482912F28B00C7C311 /* Home */,
-				E5888E402909BD4C00045FB3 /* Main.storyboard */,
 				E5BA67452912F23B00C7C311 /* TabBar */,
 				E5D6A0A0290C78BC00EC573B /* Authtantication */,
 				E5EF94A02909E0FA00CA23F8 /* Onboarding */,

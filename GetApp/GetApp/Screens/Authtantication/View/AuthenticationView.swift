@@ -60,12 +60,11 @@ final class AuthenticationView: UIView{
             make.top.equalTo(titleLabel.snp.bottom).offset(100.0)
             make.leading.equalTo(safeAreaLayoutGuide.snp.leading).offset(16.0)
             make.trailing.equalTo(safeAreaLayoutGuide.snp.trailing).offset(-16.0)
-           // make.centerY.equalTo(superview!.snp.centerY)
+            make.height.equalTo(segmentedControl.selectedSegmentIndex == 0 ? 300:400 )
+           
         }
 
     }
-    
-
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -119,12 +118,14 @@ final class AuthenticationView: UIView{
         return textField
     }()
     
-     //MARK: - Define email textField
+     //MARK: - Defining email textField
    
     private let emailTextField = {
         let textfield = UITextField()
         let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+       
         textfield.leftViewMode = .always
+        textfield.keyboardType = .emailAddress
         textfield.leftView = spacerView
         textfield.placeholder = "Username"
         textfield.autocapitalizationType = .none
@@ -132,7 +133,7 @@ final class AuthenticationView: UIView{
         textfield.tintColor = .black
         textfield.layer.masksToBounds = true
         textfield.layer.cornerRadius = 8.0
-        textfield.layer.borderColor = UIColor.darkGray.cgColor
+        textfield.layer.borderColor = UIColor(named: "AccentColor")!.withAlphaComponent(0.7).cgColor
         textfield.layer.borderWidth = 1.0
         textfield.backgroundColor = .white
         textfield.textColor = .darkGray
@@ -142,11 +143,12 @@ final class AuthenticationView: UIView{
     
     
     
-    // MARK: - Define Password Text Field
+    // MARK: - Defining Password Text Field
     private let passwordTextField = {
         let textfield = UITextField()
         textfield.placeholder = "Password"
         let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+     
         textfield.leftViewMode = .always
         textfield.leftView = spacerView
         textfield.textAlignment = .left
@@ -156,18 +158,19 @@ final class AuthenticationView: UIView{
         textfield.tintColor = .black
         textfield.layer.masksToBounds = true
         textfield.layer.cornerRadius = 8.0
-        textfield.layer.borderColor = UIColor.darkGray.cgColor
+        textfield.layer.borderColor = UIColor(named: "AccentColor")!.withAlphaComponent(0.7).cgColor
         textfield.layer.borderWidth = 1.0
         textfield.backgroundColor = .white
         textfield.textColor = .darkGray
         return textfield
     }()
     
-    // MARK: - Define Password Retype Text Field
+    // MARK: - Password Retype Text Field
     private let passwordRetypeTextField = {
         let textfield = UITextField()
         textfield.placeholder = "Re-type Password"
         let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+    //    textfield.frame.height = 50
         textfield.leftViewMode = .always
         textfield.leftView = spacerView
         textfield.textAlignment = .left
@@ -177,7 +180,7 @@ final class AuthenticationView: UIView{
         textfield.tintColor = .black
         textfield.layer.masksToBounds = true
         textfield.layer.cornerRadius = 8.0
-        textfield.layer.borderColor = UIColor.darkGray.cgColor
+        textfield.layer.borderColor = UIColor(named: "AccentColor")!.withAlphaComponent(0.7).cgColor
         textfield.layer.borderWidth = 1.0
         textfield.backgroundColor = .white
         textfield.textColor = .darkGray
@@ -189,10 +192,9 @@ final class AuthenticationView: UIView{
     // MARK: - Define UIButtons
     let signInSignUpButton = {
         let button = UIButton()
-        button.backgroundColor = .red
+        button.backgroundColor = UIColor(named: "AccentColor")
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 8.0
-        button.layer.borderColor = UIColor.red.cgColor
         button.layer.borderWidth = 1.0
         button.setTitle("Sign In", for: .normal)
         return button

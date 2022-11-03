@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ = Firestore.firestore()
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
-        IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "Dissmis"
+        IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "Dismiss"
         IQKeyboardManager.shared.toolbarTintColor = UIColor(named: "AccentColor")
         
         return true
