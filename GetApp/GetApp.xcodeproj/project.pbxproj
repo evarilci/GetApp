@@ -31,6 +31,10 @@
 		E5BA674A2912F2A300C7C311 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BA67492912F2A300C7C311 /* HomeViewController.swift */; };
 		E5BA674E2912F2C400C7C311 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BA674D2912F2C400C7C311 /* SearchViewController.swift */; };
 		E5BA67512912F2DD00C7C311 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BA67502912F2DD00C7C311 /* ProfileViewController.swift */; };
+		E5C76C012914464D000247EB /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = E5C76C002914464D000247EB /* Moya */; };
+		E5C76C032914472F000247EB /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C76C022914472F000247EB /* NetworkLayer.swift */; };
+		E5C76C0629144987000247EB /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C76C0529144987000247EB /* ProductModel.swift */; };
+		E5C76C0A29144A5F000247EB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C76C0929144A5F000247EB /* HomeViewModel.swift */; };
 		E5CB74B429119D94007E30C7 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CB74B229119D94007E30C7 /* AuthenticationViewController.swift */; };
 		E5CB74B529119D94007E30C7 /* AuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5CB74B329119D94007E30C7 /* AuthViewController.xib */; };
 		E5CB74B82911A1A7007E30C7 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CB74B72911A1A7007E30C7 /* Alert.swift */; };
@@ -84,6 +88,9 @@
 		E5BA67492912F2A300C7C311 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E5BA674D2912F2C400C7C311 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E5BA67502912F2DD00C7C311 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E5C76C022914472F000247EB /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
+		E5C76C0529144987000247EB /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		E5C76C0929144A5F000247EB /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		E5CB74B229119D94007E30C7 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		E5CB74B329119D94007E30C7 /* AuthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthViewController.xib; sourceTree = "<group>"; };
 		E5CB74B72911A1A7007E30C7 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -101,6 +108,7 @@
 			files = (
 				E568347D29132D260036EA15 /* IQKeyboardManagerSwift in Frameworks */,
 				E5784F8C2911DA8300581631 /* FirebaseAnalytics in Frameworks */,
+				E5C76C012914464D000247EB /* Moya in Frameworks */,
 				E5784F902911DA8300581631 /* FirebaseFirestore in Frameworks */,
 				E5784F8E2911DA8300581631 /* FirebaseAuth in Frameworks */,
 				E5CB74C02911C096007E30C7 /* SnapKit in Frameworks */,
@@ -131,6 +139,14 @@
 				E543AA51290DB88800372ADB /* GATextView.xib */,
 			);
 			path = GATextView;
+			sourceTree = "<group>";
+		};
+		E568347E291435EB0036EA15 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E5C76C022914472F000247EB /* NetworkLayer.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		E5784F912911E0A900581631 /* AuthViewModel */ = {
@@ -241,6 +257,7 @@
 		E5888E6F2909BDB300045FB3 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				E568347E291435EB0036EA15 /* Network */,
 				E5CB74B62911A187007E30C7 /* AlertPresentable */,
 				E5D6A0B6290C828000EC573B /* GAKit */,
 			);
@@ -291,7 +308,9 @@
 		E5BA67482912F28B00C7C311 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				E5BA67492912F2A300C7C311 /* HomeViewController.swift */,
+				E5C76C0829144A29000247EB /* ViewModel */,
+				E5C76C0729144A1F000247EB /* Controller */,
+				E5C76C0429144976000247EB /* Model */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -318,6 +337,30 @@
 				E5CB74B229119D94007E30C7 /* AuthenticationViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		E5C76C0429144976000247EB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E5C76C0529144987000247EB /* ProductModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E5C76C0729144A1F000247EB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E5BA67492912F2A300C7C311 /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E5C76C0829144A29000247EB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E5C76C0929144A5F000247EB /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		E5CB74B62911A187007E30C7 /* AlertPresentable */ = {
@@ -424,6 +467,7 @@
 				E5784F8D2911DA8300581631 /* FirebaseAuth */,
 				E5784F8F2911DA8300581631 /* FirebaseFirestore */,
 				E568347C29132D260036EA15 /* IQKeyboardManagerSwift */,
+				E5C76C002914464D000247EB /* Moya */,
 			);
 			productName = GetApp;
 			productReference = E5888E372909BD4C00045FB3 /* GetApp.app */;
@@ -501,6 +545,7 @@
 				E5CB74BE2911C096007E30C7 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				E5784F8A2911DA8300581631 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				E568347B29132D260036EA15 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				E5C76BFF2914464D000247EB /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = E5888E382909BD4C00045FB3 /* Products */;
 			projectDirPath = "";
@@ -550,8 +595,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5C76C032914472F000247EB /* NetworkLayer.swift in Sources */,
 				E5D6A0AF290C80D200EC573B /* SignInView.swift in Sources */,
 				E5833026290B357800132EBB /* UIView+Extension.swift in Sources */,
+				E5C76C0A29144A5F000247EB /* HomeViewModel.swift in Sources */,
 				E5784F872911D85500581631 /* AuthenticationView.swift in Sources */,
 				E5CB74B429119D94007E30C7 /* AuthenticationViewController.swift in Sources */,
 				E5BA67472912F27700C7C311 /* TabBarViewController.swift in Sources */,
@@ -559,6 +606,7 @@
 				E5D6A0B8290C82BE00EC573B /* GAView.swift in Sources */,
 				E5BA67512912F2DD00C7C311 /* ProfileViewController.swift in Sources */,
 				E5833029290B385A00132EBB /* OnboardingSlide.swift in Sources */,
+				E5C76C0629144987000247EB /* ProductModel.swift in Sources */,
 				E5D6A0B3290C80F700EC573B /* SignUpView.swift in Sources */,
 				E583302C290B3C5E00132EBB /* OnboardingCollectionViewCell.swift in Sources */,
 				E5BA674E2912F2C400C7C311 /* SearchViewController.swift in Sources */,
@@ -929,6 +977,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		E5C76BFF2914464D000247EB /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.0;
+			};
+		};
 		E5CB74BE2911C096007E30C7 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -959,6 +1015,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E5784F8A2911DA8300581631 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
+		};
+		E5C76C002914464D000247EB /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5C76BFF2914464D000247EB /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
 		};
 		E5CB74BF2911C096007E30C7 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
