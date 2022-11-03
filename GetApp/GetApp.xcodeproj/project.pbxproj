@@ -35,6 +35,9 @@
 		E5C76C032914472F000247EB /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C76C022914472F000247EB /* NetworkLayer.swift */; };
 		E5C76C0629144987000247EB /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C76C0529144987000247EB /* ProductModel.swift */; };
 		E5C76C0A29144A5F000247EB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C76C0929144A5F000247EB /* HomeViewModel.swift */; };
+		E5C76C0F29145A1A000247EB /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C76C0E29145A19000247EB /* HomeCollectionViewCell.swift */; };
+		E5C76C1129145A87000247EB /* HomeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C76C1029145A87000247EB /* HomeCollectionView.swift */; };
+		E5C76C1329145AF9000247EB /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C76C1229145AF9000247EB /* CGFloat+Extension.swift */; };
 		E5CB74B429119D94007E30C7 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CB74B229119D94007E30C7 /* AuthenticationViewController.swift */; };
 		E5CB74B529119D94007E30C7 /* AuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5CB74B329119D94007E30C7 /* AuthViewController.xib */; };
 		E5CB74B82911A1A7007E30C7 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CB74B72911A1A7007E30C7 /* Alert.swift */; };
@@ -91,6 +94,9 @@
 		E5C76C022914472F000247EB /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		E5C76C0529144987000247EB /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		E5C76C0929144A5F000247EB /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		E5C76C0E29145A19000247EB /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		E5C76C1029145A87000247EB /* HomeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionView.swift; sourceTree = "<group>"; };
+		E5C76C1229145AF9000247EB /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		E5CB74B229119D94007E30C7 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		E5CB74B329119D94007E30C7 /* AuthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthViewController.xib; sourceTree = "<group>"; };
 		E5CB74B72911A1A7007E30C7 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -161,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				E5833025290B357800132EBB /* UIView+Extension.swift */,
+				E5C76C1229145AF9000247EB /* CGFloat+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -244,7 +251,6 @@
 		E5888E6E2909BD9E00045FB3 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				E5833024290B354B00132EBB /* Extensions */,
 				E5888E732909BDED00045FB3 /* Base */,
 				E5888E722909BDC800045FB3 /* Assets */,
 				E5888E712909BDBF00045FB3 /* Plists */,
@@ -257,6 +263,7 @@
 		E5888E6F2909BDB300045FB3 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				E5833024290B354B00132EBB /* Extensions */,
 				E568347E291435EB0036EA15 /* Network */,
 				E5CB74B62911A187007E30C7 /* AlertPresentable */,
 				E5D6A0B6290C828000EC573B /* GAKit */,
@@ -308,6 +315,7 @@
 		E5BA67482912F28B00C7C311 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				E5C76C0B291458DB000247EB /* View */,
 				E5C76C0829144A29000247EB /* ViewModel */,
 				E5C76C0729144A1F000247EB /* Controller */,
 				E5C76C0429144976000247EB /* Model */,
@@ -361,6 +369,31 @@
 				E5C76C0929144A5F000247EB /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E5C76C0B291458DB000247EB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E5C76C0D291459E7000247EB /* CollectionViewCell */,
+				E5C76C0C291459D6000247EB /* CollectionView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E5C76C0C291459D6000247EB /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				E5C76C1029145A87000247EB /* HomeCollectionView.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		E5C76C0D291459E7000247EB /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E5C76C0E29145A19000247EB /* HomeCollectionViewCell.swift */,
+			);
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 		E5CB74B62911A187007E30C7 /* AlertPresentable */ = {
@@ -598,6 +631,7 @@
 				E5C76C032914472F000247EB /* NetworkLayer.swift in Sources */,
 				E5D6A0AF290C80D200EC573B /* SignInView.swift in Sources */,
 				E5833026290B357800132EBB /* UIView+Extension.swift in Sources */,
+				E5C76C1129145A87000247EB /* HomeCollectionView.swift in Sources */,
 				E5C76C0A29144A5F000247EB /* HomeViewModel.swift in Sources */,
 				E5784F872911D85500581631 /* AuthenticationView.swift in Sources */,
 				E5CB74B429119D94007E30C7 /* AuthenticationViewController.swift in Sources */,
@@ -609,12 +643,14 @@
 				E5C76C0629144987000247EB /* ProductModel.swift in Sources */,
 				E5D6A0B3290C80F700EC573B /* SignUpView.swift in Sources */,
 				E583302C290B3C5E00132EBB /* OnboardingCollectionViewCell.swift in Sources */,
+				E5C76C0F29145A1A000247EB /* HomeCollectionViewCell.swift in Sources */,
 				E5BA674E2912F2C400C7C311 /* SearchViewController.swift in Sources */,
 				E5EF94A42909E17B00CA23F8 /* OnboardingViewController.swift in Sources */,
 				E5CB74B82911A1A7007E30C7 /* Alert.swift in Sources */,
 				E543AA4F290DB80C00372ADB /* GATextView.swift in Sources */,
 				E5784F932911E0C400581631 /* AuthViewModel.swift in Sources */,
 				E5888E3B2909BD4C00045FB3 /* AppDelegate.swift in Sources */,
+				E5C76C1329145AF9000247EB /* CGFloat+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

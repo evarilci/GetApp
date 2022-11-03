@@ -17,11 +17,13 @@ protocol HomeViewModelDelegate: AnyObject {
 
 protocol HomeViewModelProtocol {
     var delegate: HomeViewModelDelegate? { get set }
-    
+    var numberOfRows: Int { get }
+    func titleForRow(_ row: Int) -> String?
     func fetchProduct()
 }
 
 final class HomeViewModel: HomeViewModelProtocol {
+    
     weak var delegate: HomeViewModelDelegate?
     
     
@@ -29,6 +31,14 @@ final class HomeViewModel: HomeViewModelProtocol {
         didSet{
             delegate?.fetchSucceded()
         }
+    }
+    
+    var numberOfRows: Int {
+        products.count
+    }
+    
+    func titleForRow(_ row: Int) -> String? {
+        products[row].title
     }
     
     func fetchProduct() {
