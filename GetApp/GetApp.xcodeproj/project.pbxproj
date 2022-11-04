@@ -10,6 +10,10 @@
 		E543AA4D290DB70600372ADB /* signUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E543AA4C290DB70600372ADB /* signUpView.xib */; };
 		E543AA4F290DB80C00372ADB /* GATextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E543AA4E290DB80C00372ADB /* GATextView.swift */; };
 		E543AA52290DB88800372ADB /* GATextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E543AA51290DB88800372ADB /* GATextView.xib */; };
+		E55F71DE29158209005225A3 /* RealmReachable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55F71DD29158209005225A3 /* RealmReachable.swift */; };
+		E55F71E0291588B4005225A3 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55F71DF291588B4005225A3 /* DetailView.swift */; };
+		E55F71E329158DB1005225A3 /* ProductEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55F71E229158DB1005225A3 /* ProductEntity.swift */; };
+		E55F71E629159B61005225A3 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55F71E529159B61005225A3 /* DetailViewModel.swift */; };
 		E568347D29132D260036EA15 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E568347C29132D260036EA15 /* IQKeyboardManagerSwift */; };
 		E5784F872911D85500581631 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5784F862911D85500581631 /* AuthenticationView.swift */; };
 		E5784F892911D9B400581631 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5784F882911D9B400581631 /* GoogleService-Info.plist */; };
@@ -74,6 +78,10 @@
 		E543AA4C290DB70600372ADB /* signUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = signUpView.xib; sourceTree = "<group>"; };
 		E543AA4E290DB80C00372ADB /* GATextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GATextView.swift; sourceTree = "<group>"; };
 		E543AA51290DB88800372ADB /* GATextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GATextView.xib; sourceTree = "<group>"; };
+		E55F71DD29158209005225A3 /* RealmReachable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmReachable.swift; sourceTree = "<group>"; };
+		E55F71DF291588B4005225A3 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		E55F71E229158DB1005225A3 /* ProductEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEntity.swift; sourceTree = "<group>"; };
+		E55F71E529159B61005225A3 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		E5784F862911D85500581631 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		E5784F882911D9B400581631 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E5784F922911E0C400581631 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -153,6 +161,22 @@
 				E543AA51290DB88800372ADB /* GATextView.xib */,
 			);
 			path = GATextView;
+			sourceTree = "<group>";
+		};
+		E55F71E129158D76005225A3 /* ProductEntity */ = {
+			isa = PBXGroup;
+			children = (
+				E55F71E229158DB1005225A3 /* ProductEntity.swift */,
+			);
+			path = ProductEntity;
+			sourceTree = "<group>";
+		};
+		E55F71E429159B47005225A3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E55F71E529159B61005225A3 /* DetailViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		E568347E291435EB0036EA15 /* Network */ = {
@@ -272,6 +296,7 @@
 		E5888E6F2909BDB300045FB3 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				E5C76C2429157E40000247EB /* RealmProtocol */,
 				E5833024290B354B00132EBB /* Extensions */,
 				E568347E291435EB0036EA15 /* Network */,
 				E5CB74B62911A187007E30C7 /* AlertPresentable */,
@@ -408,6 +433,8 @@
 		E5C76C19291470AD000247EB /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				E55F71E429159B47005225A3 /* ViewModel */,
+				E55F71E129158D76005225A3 /* ProductEntity */,
 				E5C76C1E29153AC1000247EB /* View */,
 				E5C76C1D29153AB2000247EB /* Controller */,
 			);
@@ -433,8 +460,17 @@
 		E5C76C1E29153AC1000247EB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E55F71DF291588B4005225A3 /* DetailView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E5C76C2429157E40000247EB /* RealmProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				E55F71DD29158209005225A3 /* RealmReachable.swift */,
+			);
+			path = RealmProtocol;
 			sourceTree = "<group>";
 		};
 		E5CB74B62911A187007E30C7 /* AlertPresentable */ = {
@@ -681,8 +717,10 @@
 				E5C76C0A29144A5F000247EB /* HomeViewModel.swift in Sources */,
 				E5784F872911D85500581631 /* AuthenticationView.swift in Sources */,
 				E5CB74B429119D94007E30C7 /* AuthenticationViewController.swift in Sources */,
+				E55F71E0291588B4005225A3 /* DetailView.swift in Sources */,
 				E5BA67472912F27700C7C311 /* TabBarViewController.swift in Sources */,
 				E5BA674A2912F2A300C7C311 /* HomeViewController.swift in Sources */,
+				E55F71DE29158209005225A3 /* RealmReachable.swift in Sources */,
 				E5D6A0B8290C82BE00EC573B /* GAView.swift in Sources */,
 				E5BA67512912F2DD00C7C311 /* ProfileViewController.swift in Sources */,
 				E5833029290B385A00132EBB /* OnboardingSlide.swift in Sources */,
@@ -690,10 +728,12 @@
 				E5D6A0B3290C80F700EC573B /* SignUpView.swift in Sources */,
 				E583302C290B3C5E00132EBB /* OnboardingCollectionViewCell.swift in Sources */,
 				E5C76C1C29153AAD000247EB /* DetailViewController.swift in Sources */,
+				E55F71E329158DB1005225A3 /* ProductEntity.swift in Sources */,
 				E5C76C0F29145A1A000247EB /* HomeCollectionViewCell.swift in Sources */,
 				E5BA674E2912F2C400C7C311 /* SearchViewController.swift in Sources */,
 				E5EF94A42909E17B00CA23F8 /* OnboardingViewController.swift in Sources */,
 				E5CB74B82911A1A7007E30C7 /* Alert.swift in Sources */,
+				E55F71E629159B61005225A3 /* DetailViewModel.swift in Sources */,
 				E543AA4F290DB80C00372ADB /* GATextView.swift in Sources */,
 				E5784F932911E0C400581631 /* AuthViewModel.swift in Sources */,
 				E5888E3B2909BD4C00045FB3 /* AppDelegate.swift in Sources */,

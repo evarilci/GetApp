@@ -20,6 +20,7 @@ protocol HomeViewModelProtocol {
     var numberOfRows: Int { get }
     func titleForRow(_ row: Int) -> String?
     func imageForRow(_ row: Int) -> URL?
+    func goToDetailFor(_ indexPath: IndexPath) -> Product?
     func fetchProduct()
 }
 
@@ -45,6 +46,10 @@ final class HomeViewModel: HomeViewModelProtocol {
     func imageForRow(_ row: Int) -> URL? {
         return products[row].imageURL
         
+    }
+    
+    func goToDetailFor(_ indexPath: IndexPath) -> Product? {
+        products[indexPath.row]
     }
     
     func fetchProduct() {

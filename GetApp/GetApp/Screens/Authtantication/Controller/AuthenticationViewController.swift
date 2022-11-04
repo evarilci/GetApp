@@ -40,6 +40,8 @@ final class AuthenticationViewController: UIViewController {
         view.backgroundColor = UIColor(named: "Background")
         signedIn = authenticationViewModel.signedIn
         
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        self.tabBarController?.tabBar.isHidden = true
         // checks user's log preferences
         authenticationView.signInSignUpButton.addTarget(self, action: #selector(signInSignUpButtonAction), for: .touchUpInside)
         

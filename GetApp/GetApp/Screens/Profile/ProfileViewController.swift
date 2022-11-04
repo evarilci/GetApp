@@ -6,24 +6,42 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileViewController: UIViewController {
+//    let logOutButton : UIButton = {
+//
+//        let button = UIButton()
+//
+//        button.setTitle("logout", for: .normal)
+//
+//        return button
+//    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//        view.addSubview(logOutButton)
+//        logOutButton.center = view.center
+//        logOutButton.addTarget(self, action: #selector(logOut), for: .touchUpInside)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(logOut))
+        navigationItem.rightBarButtonItem?.tintColor = .red
+        navigationItem.largeTitleDisplayMode = .never
+//
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc
+    func logOut() {
+        do {
+            try Auth.auth().signOut()
+            
+           self.navigationController?.pushViewController(AuthenticationViewController(), animated: true)
+           
+            print("sign out success")
+        } catch  {
+            print("sign out failed")
+        }
     }
-    */
 
 }

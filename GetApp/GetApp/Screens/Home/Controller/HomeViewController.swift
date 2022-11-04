@@ -11,7 +11,9 @@ import Kingfisher
 final class HomeViewController: UIViewController {
     // MARK: - PROPERTIES
     private let viewModel = HomeViewModel()
-    private let Mainview = HomeCollectionView()
+    private let mainView = HomeCollectionView()
+    
+    
 
     
     // MARK: LIFE CYCLE METHODS
@@ -19,8 +21,8 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = UIColor(named: "AccentColor")
         
-        view = Mainview
-        Mainview.setCollectionViewDelegate(self, andDataSource: self)
+        view = mainView
+        mainView.setCollectionViewDelegate(self, andDataSource: self)
         viewModel.delegate = self
         viewModel.fetchProduct()
     }
@@ -33,7 +35,7 @@ extension HomeViewController: HomeViewModelDelegate {
     }
     
     func fetchSucceded() {
-        Mainview.collectionView.reloadData()
+        mainView.collectionView.reloadData()
     }
     
     
@@ -41,7 +43,15 @@ extension HomeViewController: HomeViewModelDelegate {
 
 // MARK: - UICollectionViewDelegate
 extension HomeViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let product = viewModel.goToDetailFor(indexPath) else {return}
+        
+        let viewModel = DetailViewModel(product: product)
+        let viewController = DetailViewController(viewModel: viewModel)
+        navigationController?.pushViewController(viewController, animated: true)
+        
+        
+    }
 }
 // MARK: - UICollectionViewDataSource
 extension HomeViewController: UICollectionViewDataSource {

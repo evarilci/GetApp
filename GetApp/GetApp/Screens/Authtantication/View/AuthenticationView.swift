@@ -127,7 +127,7 @@ final class AuthenticationView: UIView{
         textfield.leftViewMode = .always
         textfield.keyboardType = .emailAddress
         textfield.leftView = spacerView
-        textfield.placeholder = "Username"
+        textfield.placeholder = "e-mail"
         textfield.autocapitalizationType = .none
         textfield.autocorrectionType = .no
         textfield.tintColor = .black
