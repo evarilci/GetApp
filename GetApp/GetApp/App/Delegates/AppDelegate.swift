@@ -10,6 +10,7 @@ import SnapKit
 import Firebase
 import FirebaseFirestore
 import IQKeyboardManagerSwift
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "Dismiss"
         IQKeyboardManager.shared.toolbarTintColor = UIColor(named: "AccentColor")
+        
+        print("REALM PATH: \(Realm.Configuration.defaultConfiguration.fileURL)")
         
         return true
     }

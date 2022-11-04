@@ -39,6 +39,9 @@
 		E5C76C1129145A87000247EB /* HomeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C76C1029145A87000247EB /* HomeCollectionView.swift */; };
 		E5C76C1329145AF9000247EB /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C76C1229145AF9000247EB /* CGFloat+Extension.swift */; };
 		E5C76C1629146A56000247EB /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E5C76C1529146A56000247EB /* Kingfisher */; };
+		E5C76C1C29153AAD000247EB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C76C1B29153AAD000247EB /* DetailViewController.swift */; };
+		E5C76C21291543DA000247EB /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = E5C76C20291543DA000247EB /* Realm */; };
+		E5C76C23291543DA000247EB /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E5C76C22291543DA000247EB /* RealmSwift */; };
 		E5CB74B429119D94007E30C7 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CB74B229119D94007E30C7 /* AuthenticationViewController.swift */; };
 		E5CB74B529119D94007E30C7 /* AuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5CB74B329119D94007E30C7 /* AuthViewController.xib */; };
 		E5CB74B82911A1A7007E30C7 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CB74B72911A1A7007E30C7 /* Alert.swift */; };
@@ -98,6 +101,7 @@
 		E5C76C0E29145A19000247EB /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		E5C76C1029145A87000247EB /* HomeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionView.swift; sourceTree = "<group>"; };
 		E5C76C1229145AF9000247EB /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
+		E5C76C1B29153AAD000247EB /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E5CB74B229119D94007E30C7 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		E5CB74B329119D94007E30C7 /* AuthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthViewController.xib; sourceTree = "<group>"; };
 		E5CB74B72911A1A7007E30C7 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -116,9 +120,11 @@
 				E568347D29132D260036EA15 /* IQKeyboardManagerSwift in Frameworks */,
 				E5784F8C2911DA8300581631 /* FirebaseAnalytics in Frameworks */,
 				E5C76C1629146A56000247EB /* Kingfisher in Frameworks */,
+				E5C76C23291543DA000247EB /* RealmSwift in Frameworks */,
 				E5C76C012914464D000247EB /* Moya in Frameworks */,
 				E5784F902911DA8300581631 /* FirebaseFirestore in Frameworks */,
 				E5784F8E2911DA8300581631 /* FirebaseAuth in Frameworks */,
+				E5C76C21291543DA000247EB /* Realm in Frameworks */,
 				E5CB74C02911C096007E30C7 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				E5888E402909BD4C00045FB3 /* Main.storyboard */,
+				E5C76C19291470AD000247EB /* Detail */,
 				E5BA674F2912F2CA00C7C311 /* Profile */,
 				E5BA674B2912F2A800C7C311 /* Search */,
 				E5BA67482912F28B00C7C311 /* Home */,
@@ -328,7 +335,7 @@
 		E5BA674B2912F2A800C7C311 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				E5BA674D2912F2C400C7C311 /* SearchViewController.swift */,
+				E5C76C1A29153933000247EB /* Controller */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -396,6 +403,38 @@
 				E5C76C0E29145A19000247EB /* HomeCollectionViewCell.swift */,
 			);
 			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		E5C76C19291470AD000247EB /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				E5C76C1E29153AC1000247EB /* View */,
+				E5C76C1D29153AB2000247EB /* Controller */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		E5C76C1A29153933000247EB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E5BA674D2912F2C400C7C311 /* SearchViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E5C76C1D29153AB2000247EB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E5C76C1B29153AAD000247EB /* DetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E5C76C1E29153AC1000247EB /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E5CB74B62911A187007E30C7 /* AlertPresentable */ = {
@@ -504,6 +543,8 @@
 				E568347C29132D260036EA15 /* IQKeyboardManagerSwift */,
 				E5C76C002914464D000247EB /* Moya */,
 				E5C76C1529146A56000247EB /* Kingfisher */,
+				E5C76C20291543DA000247EB /* Realm */,
+				E5C76C22291543DA000247EB /* RealmSwift */,
 			);
 			productName = GetApp;
 			productReference = E5888E372909BD4C00045FB3 /* GetApp.app */;
@@ -583,6 +624,7 @@
 				E568347B29132D260036EA15 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				E5C76BFF2914464D000247EB /* XCRemoteSwiftPackageReference "Moya" */,
 				E5C76C1429146A55000247EB /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				E5C76C1F291543D9000247EB /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = E5888E382909BD4C00045FB3 /* Products */;
 			projectDirPath = "";
@@ -647,6 +689,7 @@
 				E5C76C0629144987000247EB /* ProductModel.swift in Sources */,
 				E5D6A0B3290C80F700EC573B /* SignUpView.swift in Sources */,
 				E583302C290B3C5E00132EBB /* OnboardingCollectionViewCell.swift in Sources */,
+				E5C76C1C29153AAD000247EB /* DetailViewController.swift in Sources */,
 				E5C76C0F29145A1A000247EB /* HomeCollectionViewCell.swift in Sources */,
 				E5BA674E2912F2C400C7C311 /* SearchViewController.swift in Sources */,
 				E5EF94A42909E17B00CA23F8 /* OnboardingViewController.swift in Sources */,
@@ -1033,6 +1076,15 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		E5C76C1F291543D9000247EB /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = versionRange;
+				maximumVersion = 11.0.0;
+				minimumVersion = 10.0.0;
+			};
+		};
 		E5CB74BE2911C096007E30C7 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -1073,6 +1125,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E5C76C1429146A55000247EB /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		E5C76C20291543DA000247EB /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5C76C1F291543D9000247EB /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		E5C76C22291543DA000247EB /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5C76C1F291543D9000247EB /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 		E5CB74BF2911C096007E30C7 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

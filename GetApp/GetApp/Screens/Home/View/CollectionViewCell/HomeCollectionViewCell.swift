@@ -49,6 +49,7 @@ final class HomeCollectionViewCell: UICollectionViewCell {
     // MARK: - INIT
     override init(frame: CGRect) {
         super.init(frame: frame)
+       
         
         addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false

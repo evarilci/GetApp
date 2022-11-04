@@ -17,6 +17,8 @@ final class HomeViewController: UIViewController {
     // MARK: LIFE CYCLE METHODS
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.barTintColor = UIColor(named: "AccentColor")
+        
         view = Mainview
         Mainview.setCollectionViewDelegate(self, andDataSource: self)
         viewModel.delegate = self

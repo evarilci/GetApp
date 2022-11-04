@@ -27,7 +27,6 @@ final class HomeCollectionView: UIView {
     // MARK: - Init
     init() {
         super.init(frame: .zero)
-        backgroundColor = .gray
         
         collectionView.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         setupCollectionViewLayout()
