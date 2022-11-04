@@ -15,7 +15,6 @@ final class HomeCollectionView: UIView {
         .screenWidth * cellMultiplier - cellInset
     }
     
-    
     private lazy var flowLayout: UICollectionViewFlowLayout = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.itemSize = CGSize(width: cellDimension,

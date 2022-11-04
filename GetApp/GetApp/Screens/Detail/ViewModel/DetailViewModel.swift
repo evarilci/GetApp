@@ -16,7 +16,7 @@ protocol DetailDelegate: AnyObject {
 }
 
 final class DetailViewModel {
-    weak var delegate : DetailDelegate?
+     var delegate : DetailDelegate?
     private var product : Product
     
     var title: String? {
@@ -30,8 +30,6 @@ final class DetailViewModel {
     var price: Double? {
         product.price
     }
-    
-    
     
     var image: URL {
         product.imageURL

@@ -10,11 +10,14 @@ import UIKit
 
 final class DetailView: UIView {
     
-    weak var delegate: DetailDelegate?
-    
+     var delegate: DetailDelegate?
+    // MARK: - PROPERTIES
     var title: String? {
         didSet {
-           
+            titleLabel.numberOfLines = .zero
+            titleLabel.textAlignment = .center
+            titleLabel.textColor = UIColor(named: "AccentColor")
+            titleLabel.font = .boldSystemFont(ofSize: 20)
             titleLabel.text = title ?? "-"
            
         }
@@ -22,7 +25,9 @@ final class DetailView: UIView {
     
     var descrip: String? {
         didSet {
-           
+            descriptionLabel.numberOfLines = .zero
+            descriptionLabel.font = .systemFont(ofSize: 12)
+            descriptionLabel.textAlignment = .left
             descriptionLabel.text = descrip ?? "-"
             //            artistNameLabel.textAlignment = .right
         }
@@ -31,64 +36,72 @@ final class DetailView: UIView {
     var cost: Double? {
         didSet {
             
-            costLabel.text = "\(cost)" ?? "-"
+            costLabel.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
+            costLabel.textColor = UIColor(named: "Cost")
+            costLabel.text = "\(cost ?? 0)$"
             
         }
     }
     
     
-    
+    // MARK: - UI COMPONENTS
     private(set) var imageView = UIImageView()
     private let titleLabel = UILabel()
     private let descriptionLabel = UILabel()
     private let costLabel = UILabel()
    
-   
     
     
+    // MARK: - INIT
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        
+        
         backgroundColor = UIColor(named: "Background")
         
-        titleLabel.numberOfLines = .zero
-        descriptionLabel.numberOfLines = .zero
-        costLabel.numberOfLines = .zero
+        
         
         
         addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16.0),
-            imageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16.0),
-            imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16.0),
-            imageView.heightAnchor.constraint(equalToConstant: .screenWidth)
+            imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8.0),
+            imageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: -10),
+            //imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8.0),
+            imageView.heightAnchor.constraint(equalToConstant: .screenWidth / 3),
+            imageView.widthAnchor.constraint(equalToConstant: .screenWidth / 3)
         ])
-        imageView.layer.cornerRadius = 39
+        imageView.layer.cornerRadius = 12
         imageView.clipsToBounds = true
         
         addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            //titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            titleLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            titleLabel.widthAnchor.constraint(equalToConstant: .screenWidth),
             titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16.0),
-            titleLabel.heightAnchor.constraint(equalToConstant: 20)
+            titleLabel.heightAnchor.constraint(equalToConstant: 75)
         ])
         
         addSubview(descriptionLabel)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            descriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16.0),
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20.0),
-            descriptionLabel.heightAnchor.constraint(equalToConstant: 20)
+            descriptionLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16.0),
+            descriptionLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            descriptionLabel.widthAnchor.constraint(equalToConstant:  .screenWidth),
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8.0),
+            descriptionLabel.heightAnchor.constraint(equalToConstant: 100)
         ])
         
         addSubview(costLabel)
         costLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            costLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 32.0),
-            costLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor,constant: -24.0),
-            costLabel.heightAnchor.constraint(equalToConstant: 50)
+            costLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 32.0),
+            costLabel.heightAnchor.constraint(equalToConstant: 75),
+            costLabel.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 0)
         ])
         
     }

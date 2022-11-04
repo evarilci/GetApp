@@ -22,8 +22,6 @@ final class HomeCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    
-    // MARK: - UI COMPONENTS
     private lazy var gradientLayer: CAGradientLayer = {
         let layer = CAGradientLayer()
         layer.startPoint = CGPoint(x: 0.5, y: 0.0)
@@ -65,8 +63,8 @@ final class HomeCollectionViewCell: UICollectionViewCell {
         imageView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 8.0),
-            titleLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -8.0),
+            titleLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 16.0),
+            titleLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 16.0),
             titleLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -8.0)
         ])
         

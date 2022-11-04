@@ -11,15 +11,16 @@ import Kingfisher
 final class HomeViewController: UIViewController {
     // MARK: - PROPERTIES
     private let viewModel = HomeViewModel()
-    private let mainView = HomeCollectionView()
+    private let Mainview = HomeCollectionView()
+
     
     // MARK: LIFE CYCLE METHODS
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = UIColor(named: "AccentColor")
         
-        view = mainView
-        mainView.setCollectionViewDelegate(self, andDataSource: self)
+        view = Mainview
+        Mainview.setCollectionViewDelegate(self, andDataSource: self)
         viewModel.delegate = self
         viewModel.fetchProduct()
     }
@@ -32,20 +33,15 @@ extension HomeViewController: HomeViewModelDelegate {
     }
     
     func fetchSucceded() {
-        mainView.collectionView.reloadData()
+        Mainview.collectionView.reloadData()
     }
-
+    
+    
 }
 
 // MARK: - UICollectionViewDelegate
 extension HomeViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let product = viewModel.goToDetailFor(indexPath) else {return}
-        
-        let viewModel = DetailViewModel(product: product)
-        let viewController = DetailViewController(viewModel: viewModel)
-        navigationController?.pushViewController(viewController, animated: true)
-    }
+    
 }
 // MARK: - UICollectionViewDataSource
 extension HomeViewController: UICollectionViewDataSource {
@@ -54,12 +50,17 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! HomeCollectionViewCell
         cell.title = viewModel.titleForRow(indexPath.row)
         cell.imageView.kf.setImage(with: viewModel.imageForRow(indexPath.row)) { _ in
             collectionView.reloadData()
         }
+        
+        
+        
         return cell
     }
+    
+    
 }

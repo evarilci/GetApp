@@ -9,21 +9,11 @@ import UIKit
 import Firebase
 
 class ProfileViewController: UIViewController {
-//    let logOutButton : UIButton = {
-//
-//        let button = UIButton()
-//
-//        button.setTitle("logout", for: .normal)
-//
-//        return button
-//    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        view.addSubview(logOutButton)
-//        logOutButton.center = view.center
-//        logOutButton.addTarget(self, action: #selector(logOut), for: .touchUpInside)
+
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(logOut))
         navigationItem.rightBarButtonItem?.tintColor = .red
