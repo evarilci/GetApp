@@ -14,6 +14,9 @@
 		E55F71E0291588B4005225A3 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55F71DF291588B4005225A3 /* DetailView.swift */; };
 		E55F71E329158DB1005225A3 /* ProductEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55F71E229158DB1005225A3 /* ProductEntity.swift */; };
 		E55F71E629159B61005225A3 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55F71E529159B61005225A3 /* DetailViewModel.swift */; };
+		E5604AB12916A25F0092CBA8 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5604AB02916A25F0092CBA8 /* SearchViewModel.swift */; };
+		E5604AB32916E4020092CBA8 /* SearchCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5604AB22916E4020092CBA8 /* SearchCollectionView.swift */; };
+		E5604AB52916E4C80092CBA8 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5604AB42916E4C80092CBA8 /* SearchCollectionViewCell.swift */; };
 		E568347D29132D260036EA15 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E568347C29132D260036EA15 /* IQKeyboardManagerSwift */; };
 		E5784F872911D85500581631 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5784F862911D85500581631 /* AuthenticationView.swift */; };
 		E5784F892911D9B400581631 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5784F882911D9B400581631 /* GoogleService-Info.plist */; };
@@ -82,6 +85,9 @@
 		E55F71DF291588B4005225A3 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		E55F71E229158DB1005225A3 /* ProductEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEntity.swift; sourceTree = "<group>"; };
 		E55F71E529159B61005225A3 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		E5604AB02916A25F0092CBA8 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		E5604AB22916E4020092CBA8 /* SearchCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionView.swift; sourceTree = "<group>"; };
+		E5604AB42916E4C80092CBA8 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		E5784F862911D85500581631 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		E5784F882911D9B400581631 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E5784F922911E0C400581631 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -177,6 +183,23 @@
 				E55F71E529159B61005225A3 /* DetailViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E5604AAE2916A2310092CBA8 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				E5604AB22916E4020092CBA8 /* SearchCollectionView.swift */,
+				E5604AB42916E4C80092CBA8 /* SearchCollectionViewCell.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		E5604AAF2916A2390092CBA8 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E5604AB02916A25F0092CBA8 /* SearchViewModel.swift */,
+			);
+			path = viewModel;
 			sourceTree = "<group>";
 		};
 		E568347E291435EB0036EA15 /* Network */ = {
@@ -360,6 +383,8 @@
 		E5BA674B2912F2A800C7C311 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				E5604AAF2916A2390092CBA8 /* viewModel */,
+				E5604AAE2916A2310092CBA8 /* view */,
 				E5C76C1A29153933000247EB /* Controller */,
 			);
 			path = Search;
@@ -720,14 +745,17 @@
 				E55F71E0291588B4005225A3 /* DetailView.swift in Sources */,
 				E5BA67472912F27700C7C311 /* TabBarViewController.swift in Sources */,
 				E5BA674A2912F2A300C7C311 /* HomeViewController.swift in Sources */,
+				E5604AB32916E4020092CBA8 /* SearchCollectionView.swift in Sources */,
 				E55F71DE29158209005225A3 /* RealmReachable.swift in Sources */,
 				E5D6A0B8290C82BE00EC573B /* GAView.swift in Sources */,
 				E5BA67512912F2DD00C7C311 /* ProfileViewController.swift in Sources */,
 				E5833029290B385A00132EBB /* OnboardingSlide.swift in Sources */,
+				E5604AB52916E4C80092CBA8 /* SearchCollectionViewCell.swift in Sources */,
 				E5C76C0629144987000247EB /* ProductModel.swift in Sources */,
 				E5D6A0B3290C80F700EC573B /* SignUpView.swift in Sources */,
 				E583302C290B3C5E00132EBB /* OnboardingCollectionViewCell.swift in Sources */,
 				E5C76C1C29153AAD000247EB /* DetailViewController.swift in Sources */,
+				E5604AB12916A25F0092CBA8 /* SearchViewModel.swift in Sources */,
 				E55F71E329158DB1005225A3 /* ProductEntity.swift in Sources */,
 				E5C76C0F29145A1A000247EB /* HomeCollectionViewCell.swift in Sources */,
 				E5BA674E2912F2C400C7C311 /* SearchViewController.swift in Sources */,

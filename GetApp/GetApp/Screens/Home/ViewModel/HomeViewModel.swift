@@ -21,15 +21,17 @@ protocol HomeViewModelProtocol {
     var numberOfRows: Int { get }
     func titleForRow(_ row: Int) -> String?
     func imageForRow(_ row: Int) -> URL?
-    func goToDetailFor(_ indexPath: IndexPath) -> Product?
+    func goToEntityDetailFor(_ indexPath: IndexPath) -> ProductEntity?
     func fetchProduct()
     func parseProduct()
+    
 }
 
 final class HomeViewModel: HomeViewModelProtocol  {
     
     weak var delegate: HomeViewModelDelegate?
     
+    var productTitle = [String]()
     
     private var products = [Product]() {
         didSet{
@@ -42,25 +44,16 @@ final class HomeViewModel: HomeViewModelProtocol  {
             delegate?.fetchSucceded()
         }
     }
-    
     var numberOfRows: Int {
-        //products.count
         entity.count
     }
     
     func titleForRow(_ row: Int) -> String? {
-        //products[row].title
+        
         entity[row].title
     }
-    
     func imageForRow(_ row: Int) -> URL? {
-//        return products[row].imageURL
         return entity[row].imageURL
-        
-    }
-    
-    func goToDetailFor(_ indexPath: IndexPath) -> Product? {
-        products[indexPath.row]
     }
     
     func goToEntityDetailFor(_ indexPath: IndexPath) -> ProductEntity? {
@@ -78,7 +71,8 @@ final class HomeViewModel: HomeViewModelProtocol  {
                     self?.products = products
                     products.forEach { product in
                         guard self!.realm.object(ofType: ProductEntity.self, forPrimaryKey: product.id) == nil else {return}
-
+                        self!.productTitle.append(product.title!)
+                        
                         let productEntity = ProductEntity()
                         productEntity._id = product.id ?? .zero
                         productEntity.title = product.title!
@@ -86,7 +80,7 @@ final class HomeViewModel: HomeViewModelProtocol  {
                         productEntity.price = product.price!
                         productEntity.category = product.category!
                         productEntity.image = product.image!
-
+                        
                         let ratingEntity = RatingEntity()
                         ratingEntity.rate = product.rating!.rate!
                         ratingEntity.count = product.rating!.count!
@@ -99,18 +93,19 @@ final class HomeViewModel: HomeViewModelProtocol  {
                             self?.delegate?.errorOcurred(error)
                         }
                     }
-
+                    
                     self?.delegate?.fetchSucceded()
                 } catch  {
                     self?.delegate?.errorOcurred(error)
                 }
             }
         }
-   }
+    }
     
     func parseProduct() {
         
         entity = realm.objects(ProductEntity.self).map { $0 }
+        delegate?.fetchSucceded()
     }
 }
 
