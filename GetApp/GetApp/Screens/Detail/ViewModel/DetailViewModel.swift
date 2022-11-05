@@ -17,14 +17,18 @@ protocol DetailDelegate: AnyObject {
 
 final class DetailViewModel {
      var delegate : DetailDelegate?
-    private var product : Product
+    private var product : ProductEntity
     
     var title: String? {
         product.title
     }
     
+    var category: String? {
+        product.category
+    }
+    
     var descrp: String? {
-        product.description
+        product.desc
     }
     
     var price: Double? {
@@ -35,7 +39,7 @@ final class DetailViewModel {
         product.imageURL
     }
     
-    init(product: Product) {
+    init(product: ProductEntity) {
         self.product = product
     }
     

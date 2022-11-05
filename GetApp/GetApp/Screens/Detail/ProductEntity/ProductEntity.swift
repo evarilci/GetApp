@@ -24,3 +24,13 @@ class RatingEntity: Object {
     @Persisted var rate: Double
     @Persisted var count: Int
 }
+
+extension ProductEntity {
+    var imageURL: URL {
+         let image = image
+              let imageUrl = URL(string: image)
+            
+        return imageUrl!
+        }
+        
+    }

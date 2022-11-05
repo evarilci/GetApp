@@ -34,6 +34,7 @@ final class DetailViewController: UIViewController {
         mainView.title = viewModel.title
         mainView.cost = viewModel.price
         mainView.descrip = viewModel.descrp
+        mainView.category = viewModel.category
         mainView.imageView.kf.setImage(with: viewModel.image)
         
       

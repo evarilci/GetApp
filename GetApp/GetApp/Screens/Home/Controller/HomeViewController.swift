@@ -14,6 +14,9 @@ final class HomeViewController: UIViewController {
     private let mainView = HomeCollectionView()
     
     // MARK: LIFE CYCLE METHODS
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = UIColor(named: "AccentColor")
@@ -22,6 +25,12 @@ final class HomeViewController: UIViewController {
         mainView.setCollectionViewDelegate(self, andDataSource: self)
         viewModel.delegate = self
         viewModel.fetchProduct()
+        viewModel.parseProduct()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchSucceded()
     }
     
 }
@@ -40,7 +49,7 @@ extension HomeViewController: HomeViewModelDelegate {
 // MARK: - UICollectionViewDelegate
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let product = viewModel.goToDetailFor(indexPath) else {return}
+        guard let product = viewModel.goToEntityDetailFor(indexPath) else {return}
         
         let viewModel = DetailViewModel(product: product)
         let viewController = DetailViewController(viewModel: viewModel)

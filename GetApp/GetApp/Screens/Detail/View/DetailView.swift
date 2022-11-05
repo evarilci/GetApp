@@ -12,6 +12,16 @@ final class DetailView: UIView {
     
      var delegate: DetailDelegate?
     // MARK: - PROPERTIES
+    
+    var category: String? {
+        didSet {
+            categoryLabel.textAlignment = .center
+            categoryLabel.textColor = UIColor(named: "AccentColor")?.withAlphaComponent(0.7)
+            categoryLabel.font = .systemFont(ofSize: 20)
+            categoryLabel.text = category ?? "-"
+        }
+    }
+    
     var title: String? {
         didSet {
             titleLabel.numberOfLines = .zero
@@ -26,10 +36,9 @@ final class DetailView: UIView {
     var descrip: String? {
         didSet {
             descriptionLabel.numberOfLines = .zero
-            descriptionLabel.font = .systemFont(ofSize: 12)
+            descriptionLabel.font = .systemFont(ofSize: 17)
             descriptionLabel.textAlignment = .left
             descriptionLabel.text = descrip ?? "-"
-            //            artistNameLabel.textAlignment = .right
         }
     }
     
@@ -43,13 +52,12 @@ final class DetailView: UIView {
         }
     }
     
-    
     // MARK: - UI COMPONENTS
     private(set) var imageView = UIImageView()
     private let titleLabel = UILabel()
     private let descriptionLabel = UILabel()
     private let costLabel = UILabel()
-   
+    private let categoryLabel = UILabel()
     
     
     // MARK: - INIT
@@ -102,6 +110,14 @@ final class DetailView: UIView {
             costLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 32.0),
             costLabel.heightAnchor.constraint(equalToConstant: 75),
             costLabel.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 0)
+        ])
+        
+        addSubview(categoryLabel)
+        categoryLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            categoryLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16.0),
+            categoryLabel.heightAnchor.constraint(equalToConstant: 25),
+            categoryLabel.topAnchor.constraint(equalTo: costLabel.bottomAnchor, constant: 8)
         ])
         
     }
