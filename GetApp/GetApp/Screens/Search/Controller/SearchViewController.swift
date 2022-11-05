@@ -12,21 +12,24 @@ final class SearchViewController: UIViewController {
     
     let searchController = UISearchController(searchResultsController: nil)
     var viewModel = SearchViewModel()
-    var MainView = SearchView()
+    var mainView = SearchView()
     
+    
+    // MARK: - SEARCHBAR FILTERING STATES
     var isSearchBarEmpty: Bool {
-      return searchController.searchBar.text?.isEmpty ?? true
+        return searchController.searchBar.text?.isEmpty ?? true
     }
     
     var isFiltering: Bool {
-      return searchController.isActive && !isSearchBarEmpty
+        return searchController.isActive && !isSearchBarEmpty
     }
-
     
+    
+    // MARK: - LIFE CYCLE METHODS
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-
+        
+        // searchController options
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -34,35 +37,36 @@ final class SearchViewController: UIViewController {
         navigationItem.hidesSearchBarWhenScrolling = true
         navigationItem.searchController = searchController
         definesPresentationContext = true
-       
-        view = MainView
-        MainView.setCollectionViewDelegate(self, andDataSource: self)
+        
+        view = mainView
+        mainView.setCollectionViewDelegate(self, andDataSource: self)
         viewModel.delegate = self
         
         viewModel.fetchProduct()
         setupSearchBar()
     }
     
-
+    // MARK: - SEARCHBAR PREFERENCES SET
     private func setupSearchBar() {
-            definesPresentationContext = true
-            navigationItem.searchController = self.searchController
-            navigationItem.hidesSearchBarWhenScrolling = false
+        definesPresentationContext = true
+        navigationItem.searchController = self.searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
         searchController.searchResultsUpdater = self
-            let textFieldInsideSearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField
-            textFieldInsideSearchBar?.placeholder = "search for Product"
-        }
-
+        let textFieldInsideSearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField
+        textFieldInsideSearchBar?.placeholder = "search for Product"
+    }
+    
 }
 
 extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-      
+        
         
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
+        // with this, search bar can filter the product depending what user type
         viewModel.filteredProductArr = viewModel.products.filter {$0.title!.lowercased().contains(searchText.lowercased())}
     }
     
@@ -70,13 +74,12 @@ extension SearchViewController: UISearchResultsUpdating {
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // here we checking filtering states
         if isFiltering{
             return viewModel.filteredProductArr.count
         }
         return viewModel.numberOfRows
-         
-        //viewModel.numberOfRows
-  
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -89,12 +92,10 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         } else {
             product = viewModel.products[indexPath.row]
         }
-        
- 
         cell.title = product.title
-        cell.imageView.kf.setImage(with: viewModel.imageForRow(indexPath.row)) { _ in
-                    collectionView.reloadData()
-            }
+        cell.imageView.kf.setImage(with: product.imageURL) { _ in
+            collectionView.reloadData()
+        }
         
         return cell
         
@@ -107,11 +108,9 @@ extension SearchViewController: SearchViewModelDelegate {
     func errorOcurred(_ error: Error) {
         print(error.localizedDescription)
     }
-    
     func fetchSucceded() {
-        MainView.collectionView.reloadData()
+        mainView.collectionView.reloadData()
     }
-
 }
 
 extension SearchViewController: UISearchBarDelegate {

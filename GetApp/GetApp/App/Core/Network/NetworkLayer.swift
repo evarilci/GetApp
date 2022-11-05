@@ -14,7 +14,7 @@ let provider = MoyaProvider<FakeStoreService>(plugins: [plugin])
 enum FakeStoreService{
     case getProducts
     case getCategories
-    case getSearchResults(title: String)
+    
 }
 
 extension FakeStoreService: TargetType {
@@ -30,9 +30,6 @@ extension FakeStoreService: TargetType {
             return "/products"
         case .getCategories:
             return "/products/categories"
-        case .getSearchResults(let title):
-            return "/products\(title)"
-
         }
     }
     
@@ -45,8 +42,6 @@ extension FakeStoreService: TargetType {
         case .getProducts:
             return .requestPlain
         case .getCategories:
-            return .requestPlain
-        case .getSearchResults:
             return .requestPlain
         }
     }

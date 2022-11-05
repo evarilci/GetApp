@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController, AlertPresentable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,15 +23,19 @@ class ProfileViewController: UIViewController {
     }
     @objc
     func logOut() {
-        do {
-            try Auth.auth().signOut()
-            
-           self.navigationController?.pushViewController(AuthenticationViewController(), animated: true)
-           
-            print("sign out success")
-        } catch  {
-            print("sign out failed")
+        showAlert(title: "Log Out", message: "You are about to log out", cancelButtonTitle: "Cancel") { _ in
+            do {
+                try Auth.auth().signOut()
+                
+               self.navigationController?.pushViewController(AuthenticationViewController(), animated: true)
+               
+                print("sign out success")
+            } catch  {
+                print("sign out failed")
+            }
         }
+        
+       
     }
 
 }

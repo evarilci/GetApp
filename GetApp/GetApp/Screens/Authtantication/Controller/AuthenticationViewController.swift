@@ -11,7 +11,7 @@ import UIKit
 import FirebaseAuth
 
 final class AuthenticationViewController: UIViewController {
-
+    
     let authenticationView = AuthenticationView()
     let authenticationViewModel = AuthenticationViewModel()
     
@@ -58,9 +58,6 @@ final class AuthenticationViewController: UIViewController {
         }
         
     }
-    
-    
-
     
     //  MARK: Button Methods
     @objc func signInSignUpButtonAction(sender: UIButton!) {

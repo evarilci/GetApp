@@ -26,13 +26,13 @@ protocol SearchViewModelProtocol {
     var filteredProductArr: [Product] { get set }
     func fetchCategory()
     func fetchProduct()
-    //func parseProduct()
-   // func inSearchFor(_ text: String) -> Product?
+    
 }
 
 final class SearchViewModel: SearchViewModelProtocol  {
    
     func fetchCategory() {
+        // TODO: - FETCH CATEGORY
         
     }
      var products = [Product]() {
@@ -57,17 +57,15 @@ final class SearchViewModel: SearchViewModelProtocol  {
     
     var numberOfRows: Int {
         products.count
-       // entity.count
     }
     
     func titleForRow(_ row: Int) -> String? {
         products[row].title
-        //entity[row].title
     }
     
     func imageForRow(_ row: Int) -> URL? {
         return products[row].imageURL
-//        return entity[row].imageURL
+
         
     }
     

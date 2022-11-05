@@ -20,9 +20,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         _ = Firestore.firestore()
+        
+        let defaults = UserDefaults.standard
+        let key = "signedIn"
+        if defaults.bool(forKey: key) == true {
+            defaults.set(false, forKey: key)
+        } else {
+            do {
+                try Auth.auth().signOut()
+            } catch {
+                
+            }
+        }
         keyboardSetup()
         
-        print("REALM PATH: \(Realm.Configuration.defaultConfiguration.fileURL)")
+       // print("REALM PATH: \(Realm.Configuration.defaultConfiguration.fileURL)")
         
         return true
     }

@@ -39,7 +39,7 @@ final class AuthenticationView: UIView{
     // MARK:  Init
     init() {
         super.init(frame: .zero)
-        backgroundColor = .white
+        backgroundColor = UIColor(named: "Background")
         
         addTitleLabel()
         segmentedControl.selectedSegmentIndex = 0
