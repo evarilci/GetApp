@@ -15,33 +15,33 @@ protocol SearchViewModelDelegate: AnyObject {
     func fetchSucceded()
     
 }
-
-
-
 protocol SearchViewModelProtocol {
     var delegate: SearchViewModelDelegate? { get set }
     var numberOfRows: Int {get}
     
     func titleForRow(_ row: Int) -> String?
     func imageForRow(_ row: Int) -> URL?
-    
     var filteredProductArr: [Product] { get set }
-    func fetchCategory()
+    func fetchsingleCategory(_ text: String)
     func fetchProduct()
-   
-    
 }
 
 final class SearchViewModel: SearchViewModelProtocol  {
-   
-   
-     var products = [Product]() {
+    
+    
+    var products = [Product]() {
         didSet{
             delegate?.fetchSucceded()
         }
     }
     
     var categories = Category() {
+        didSet {
+            delegate?.fetchSucceded()
+        }
+    }
+    
+    var categorieArr = [Category]() {
         didSet {
             delegate?.fetchSucceded()
         }
@@ -59,6 +59,12 @@ final class SearchViewModel: SearchViewModelProtocol  {
         }
     }
     
+    var filteredCategory = [Product]() {
+        didSet {
+            delegate?.fetchSucceded()
+        }
+    }
+    
     weak var delegate: SearchViewModelDelegate?
     
     var numberOfRows: Int {
@@ -71,8 +77,25 @@ final class SearchViewModel: SearchViewModelProtocol  {
     
     func imageForRow(_ row: Int) -> URL? {
         return products[row].imageURL
-
         
+        
+    }
+    
+    func fetchsingleCategory(_ text: String) {
+        provider.request(.getSingleCategory(text: text)) {[weak self] result in
+            switch result {
+            case.failure(let error):
+                self?.delegate?.errorOcurred(error)
+            case .success(let response):
+                do {
+                    let singleCathegory =  try JSONDecoder().decode([Product].self, from: response.data)
+                    self?.filteredCategory = singleCathegory
+                    self?.delegate?.fetchSucceded()
+                } catch {
+                    self?.delegate?.errorOcurred(error)
+                }
+            }
+        }
     }
     
     func fetchProduct() {
@@ -84,9 +107,6 @@ final class SearchViewModel: SearchViewModelProtocol  {
                 do {
                     let products = try JSONDecoder().decode([Product].self, from: response.data)
                     self?.products = products
-                   
-                    
-                    
                     self?.delegate?.fetchSucceded()
                 } catch  {
                     self?.delegate?.errorOcurred(error)
@@ -97,29 +117,10 @@ final class SearchViewModel: SearchViewModelProtocol  {
         }
     }
     
-    func fetchCategory() {
-        provider.request(.getCategories) { [weak self] result in
-            switch result {
-            case .failure(let error):
-                self?.delegate?.errorOcurred(error)
-            case .success(let response):
-                do {
-                    let category = try JSONDecoder().decode(Category.self, from: response.data)
-                    self?.categories = category
-                    self?.delegate?.fetchSucceded()
-                } catch {
-                    self?.delegate?.errorOcurred(error)
-                }
-            }
-        }
+    // filtering search results
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
         
-        
-    }
-    
-    
-    func filterContentForSearchText(_ searchText: String, category: Category.Element? = nil) {
-        
-       filteredProductArr = products.filter {$0.title!.lowercased().contains(searchText.lowercased())}
+        filteredProductArr = products.filter {$0.title!.lowercased().contains(searchText.lowercased())}
     }
 }
 

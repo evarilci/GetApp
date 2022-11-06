@@ -13,8 +13,6 @@ final class SearchViewController: UIViewController, AlertPresentable {
     let searchController = UISearchController(searchResultsController: nil)
     var viewModel = SearchViewModel()
     var mainView = SearchView()
-    
-    
     // MARK: - SEARCHBAR FILTERING STATES
     var isSearchBarEmpty: Bool {
         return searchController.searchBar.text?.isEmpty ?? true
@@ -24,27 +22,17 @@ final class SearchViewController: UIViewController, AlertPresentable {
         return searchController.isActive && !isSearchBarEmpty
     }
     
-    
     // MARK: - LIFE CYCLE METHODS
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
-      
-        // searchController options
-        searchController.searchResultsUpdater = self
-        searchController.searchBar.delegate = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Product"
-        navigationItem.hidesSearchBarWhenScrolling = true
-        navigationItem.searchController = searchController
-        definesPresentationContext = true
-        
         view = mainView
         mainView.setCollectionViewDelegate(self, andDataSource: self)
     
         // fetch from api
         viewModel.fetchProduct()
-        viewModel.fetchCategory()
+       
+        // searchbar preferences
         setupSearchBar()
     }
     
@@ -53,27 +41,32 @@ final class SearchViewController: UIViewController, AlertPresentable {
         definesPresentationContext = true
         navigationItem.searchController = self.searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.searchBar.showsScopeBar = true
+        searchController.searchBar.scopeButtonTitles = ["All","electronics","jewelery","men's clothing","women's clothing"]
+        definesPresentationContext = true
         let textFieldInsideSearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField
         textFieldInsideSearchBar?.placeholder = "search for Product"
     }
 }
-
-extension SearchViewController: UISearchResultsUpdating {
+// MARK: - UISearchResultsUpdating, UISearchBarDelegate
+extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
-        
-        
+
     }
     
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        let categories = viewModel.categories
-        
-        searchBar.scopeButtonTitles = categories
-        
+      
+        let searchbar = searchController.searchBar
+        let scopeButton = searchbar.scopeButtonTitles![searchbar.selectedScopeButtonIndex]
+        viewModel.fetchsingleCategory(scopeButton)
+        mainView.collectionView.reloadData()
+       
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
         if searchText.count > 1 {
             viewModel.filterContentForSearchText(searchText)
         } else {
@@ -82,14 +75,18 @@ extension SearchViewController: UISearchResultsUpdating {
     }
 }
 
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // here we checking filtering states
-        if isFiltering{
-            return viewModel.filteredProductArr.count
-        }
-        return viewModel.numberOfRows
         
+        if isFiltering {
+            return viewModel.filteredProductArr.count
+        } else if searchController.searchBar.selectedScopeButtonIndex > 0 {
+            return viewModel.filteredCategory.count
+        } else {
+            return viewModel.numberOfRows
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -99,6 +96,9 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
         if isFiltering {
             product = viewModel.filteredProductArr[indexPath.row]
+        } else if searchController.searchBar.selectedScopeButtonIndex > 0 {
+            
+            product = viewModel.filteredCategory[indexPath.row]
         } else {
             product = viewModel.products[indexPath.row]
         }
@@ -121,8 +121,4 @@ extension SearchViewController: SearchViewModelDelegate {
     func fetchSucceded() {
         mainView.collectionView.reloadData()
     }
-}
-
-extension SearchViewController: UISearchBarDelegate {
-    
 }

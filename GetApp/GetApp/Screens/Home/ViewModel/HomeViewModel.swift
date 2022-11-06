@@ -69,7 +69,7 @@ final class HomeViewModel: HomeViewModelProtocol  {
                     self?.products = products
                     products.forEach { product in
                         guard self!.realm.object(ofType: ProductEntity.self, forPrimaryKey: product.id) == nil else {return}
-                        
+
                         let productEntity = ProductEntity()
                         productEntity._id = product.id ?? .zero
                         productEntity.title = product.title!
@@ -77,7 +77,7 @@ final class HomeViewModel: HomeViewModelProtocol  {
                         productEntity.price = product.price!
                         productEntity.category = product.category!
                         productEntity.image = product.image!
-                        
+
                         let ratingEntity = RatingEntity()
                         ratingEntity.rate = product.rating!.rate!
                         ratingEntity.count = product.rating!.count!
@@ -90,7 +90,7 @@ final class HomeViewModel: HomeViewModelProtocol  {
                             self?.delegate?.errorOcurred(error)
                         }
                     }
-                    
+
                     self?.delegate?.fetchSucceded()
                 } catch  {
                     self?.delegate?.errorOcurred(error)

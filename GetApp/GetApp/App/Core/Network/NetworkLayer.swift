@@ -13,7 +13,8 @@ let provider = MoyaProvider<FakeStoreService>(plugins: [plugin])
 
 enum FakeStoreService{
     case getProducts
-    case getCategories
+    case getSingleCategory(text: String)
+    
     
 }
 
@@ -28,8 +29,8 @@ extension FakeStoreService: TargetType {
         switch self {
         case .getProducts :
             return "/products"
-        case .getCategories:
-            return "/products/categories"
+        case .getSingleCategory(let text):
+            return "/products/category/\(text)"
         }
     }
     
@@ -41,8 +42,8 @@ extension FakeStoreService: TargetType {
         switch self {
         case .getProducts:
             return .requestPlain
-        case .getCategories:
-            return .requestPlain
+        case.getSingleCategory:
+               return .requestPlain
         }
     }
     

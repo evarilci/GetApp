@@ -70,13 +70,13 @@ final class DetailView: UIView {
         
         
         
-        
+        // MARK: - DETAIL VIEWS LAYOUT
         addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8.0),
             imageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: -10),
-            //imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8.0),
+            
             imageView.heightAnchor.constraint(equalToConstant: .screenWidth / 3),
             imageView.widthAnchor.constraint(equalToConstant: .screenWidth / 3)
         ])
@@ -86,7 +86,6 @@ final class DetailView: UIView {
         addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            //titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
             titleLabel.widthAnchor.constraint(equalToConstant: .screenWidth),

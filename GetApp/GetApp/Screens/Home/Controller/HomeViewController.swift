@@ -28,7 +28,8 @@ final class HomeViewController: UIViewController, AlertPresentable {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        viewModel.fetchProduct()
+        viewModel.fetchProduct()
+        viewModel.parseProduct()
         fetchSucceded()
     }
 }
