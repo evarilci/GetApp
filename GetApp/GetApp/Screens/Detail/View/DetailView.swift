@@ -67,9 +67,7 @@ final class DetailView: UIView {
         
         
         backgroundColor = UIColor(named: "Background")
-        
-        
-        
+       
         // MARK: - DETAIL VIEWS LAYOUT
         addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
