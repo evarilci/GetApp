@@ -40,7 +40,7 @@ final class SearchViewController: UIViewController, AlertPresentable {
     private func setupSearchBar() {
         definesPresentationContext = true
         navigationItem.searchController = self.searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.hidesSearchBarWhenScrolling = true
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
@@ -77,6 +77,9 @@ extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // here we checking filtering states
         

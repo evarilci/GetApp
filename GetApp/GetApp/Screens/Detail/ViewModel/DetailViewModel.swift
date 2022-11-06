@@ -19,6 +19,11 @@ final class DetailViewModel {
      var delegate : DetailDelegate?
      var product : ProductEntity
     
+    
+//    func addToCartOnFirestore {
+//        
+//    }
+    
     var title: String? {
         product.title
     }

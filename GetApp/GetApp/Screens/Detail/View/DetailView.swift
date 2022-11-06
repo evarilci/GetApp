@@ -58,7 +58,14 @@ final class DetailView: UIView {
     private let descriptionLabel = UILabel()
     private let costLabel = UILabel()
     private let categoryLabel = UILabel()
-    
+    private let addToCartButton : UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor(named: "AccentColor")
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 8.0
+        button.setTitle("Add to cart", for: .normal)
+        return button
+    }()
     
     // MARK: - INIT
     override init(frame: CGRect) {
@@ -73,7 +80,7 @@ final class DetailView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8.0),
-            imageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: -10),
+            imageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: -10.0),
             
             imageView.heightAnchor.constraint(equalToConstant: .screenWidth / 3),
             imageView.widthAnchor.constraint(equalToConstant: .screenWidth / 3)
@@ -84,21 +91,21 @@ final class DetailView: UIView {
         addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            titleLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            titleLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16.0),
+            titleLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16.0),
             titleLabel.widthAnchor.constraint(equalToConstant: .screenWidth),
             titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16.0),
-            titleLabel.heightAnchor.constraint(equalToConstant: 75)
+            titleLabel.heightAnchor.constraint(equalToConstant: 75.0)
         ])
         
         addSubview(descriptionLabel)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             descriptionLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16.0),
-            descriptionLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            descriptionLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16.0),
             descriptionLabel.widthAnchor.constraint(equalToConstant:  .screenWidth),
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8.0),
-            descriptionLabel.heightAnchor.constraint(equalToConstant: 100)
+            descriptionLabel.heightAnchor.constraint(equalToConstant: 150.0)
         ])
         
         addSubview(costLabel)
@@ -114,9 +121,17 @@ final class DetailView: UIView {
         NSLayoutConstraint.activate([
             categoryLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16.0),
             categoryLabel.heightAnchor.constraint(equalToConstant: 25),
-            categoryLabel.topAnchor.constraint(equalTo: costLabel.bottomAnchor, constant: 8)
+            categoryLabel.topAnchor.constraint(equalTo: costLabel.bottomAnchor, constant: 8.0)
         ])
         
+        addSubview(addToCartButton)
+        addToCartButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            addToCartButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            addToCartButton.heightAnchor.constraint(equalToConstant: 50.0),
+            addToCartButton.widthAnchor.constraint(equalToConstant: 150.0),
+            addToCartButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16.0)
+        ])
     }
     
     required init?(coder: NSCoder) {
