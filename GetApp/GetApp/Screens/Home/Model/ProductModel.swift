@@ -22,6 +22,8 @@ struct Rating: Decodable {
     let count: Int?
 }
 
+typealias Category = [String]
+
 extension Product {
     var imageURL: URL {
         guard let image = image,

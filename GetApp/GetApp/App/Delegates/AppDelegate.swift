@@ -21,20 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         _ = Firestore.firestore()
         
-        let defaults = UserDefaults.standard
-        let key = "signedIn"
-        if defaults.bool(forKey: key) == true {
-            defaults.set(false, forKey: key)
-        } else {
-            do {
-                try Auth.auth().signOut()
-            } catch {
-                
-            }
-        }
+        
         keyboardSetup()
         
-       // print("REALM PATH: \(Realm.Configuration.defaultConfiguration.fileURL)")
         
         return true
     }

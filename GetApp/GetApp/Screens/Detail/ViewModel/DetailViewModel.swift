@@ -17,7 +17,7 @@ protocol DetailDelegate: AnyObject {
 
 final class DetailViewModel {
      var delegate : DetailDelegate?
-    private var product : ProductEntity
+     var product : ProductEntity
     
     var title: String? {
         product.title

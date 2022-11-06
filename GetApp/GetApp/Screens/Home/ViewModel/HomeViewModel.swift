@@ -31,8 +31,6 @@ final class HomeViewModel: HomeViewModelProtocol  {
     
     weak var delegate: HomeViewModelDelegate?
     
-    var productTitle = [String]()
-    
     private var products = [Product]() {
         didSet{
             delegate?.fetchSucceded()
@@ -71,7 +69,6 @@ final class HomeViewModel: HomeViewModelProtocol  {
                     self?.products = products
                     products.forEach { product in
                         guard self!.realm.object(ofType: ProductEntity.self, forPrimaryKey: product.id) == nil else {return}
-                        self!.productTitle.append(product.title!)
                         
                         let productEntity = ProductEntity()
                         productEntity._id = product.id ?? .zero

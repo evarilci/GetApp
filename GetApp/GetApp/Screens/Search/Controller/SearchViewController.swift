@@ -3,12 +3,12 @@
 //  GetApp
 //
 //  Created by Eymen Varilci on 2.11.2022.
-//
+
 
 import UIKit
 import Kingfisher
 
-final class SearchViewController: UIViewController {
+final class SearchViewController: UIViewController, AlertPresentable {
     
     let searchController = UISearchController(searchResultsController: nil)
     var viewModel = SearchViewModel()
@@ -28,7 +28,8 @@ final class SearchViewController: UIViewController {
     // MARK: - LIFE CYCLE METHODS
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        viewModel.delegate = self
+      
         // searchController options
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
@@ -40,9 +41,10 @@ final class SearchViewController: UIViewController {
         
         view = mainView
         mainView.setCollectionViewDelegate(self, andDataSource: self)
-        viewModel.delegate = self
-        
+    
+        // fetch from api
         viewModel.fetchProduct()
+        viewModel.fetchCategory()
         setupSearchBar()
     }
     
@@ -55,7 +57,6 @@ final class SearchViewController: UIViewController {
         let textFieldInsideSearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField
         textFieldInsideSearchBar?.placeholder = "search for Product"
     }
-    
 }
 
 extension SearchViewController: UISearchResultsUpdating {
@@ -64,12 +65,21 @@ extension SearchViewController: UISearchResultsUpdating {
         
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        let categories = viewModel.categories
         
-        // with this, search bar can filter the product depending what user type
-        viewModel.filteredProductArr = viewModel.products.filter {$0.title!.lowercased().contains(searchText.lowercased())}
+        searchBar.scopeButtonTitles = categories
+        
     }
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchText.count > 1 {
+            viewModel.filterContentForSearchText(searchText)
+        } else {
+            viewModel.filteredProductArr = viewModel.products
+        }
+    }
 }
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -106,7 +116,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
 // MARK: - HomeViewModelDelegate
 extension SearchViewController: SearchViewModelDelegate {
     func errorOcurred(_ error: Error) {
-        print(error.localizedDescription)
+        showAlert(title: "Error", message: error.localizedDescription, cancelButtonTitle: "Ok", handler: nil)
     }
     func fetchSucceded() {
         mainView.collectionView.reloadData()

@@ -20,7 +20,6 @@ final class OnboardingViewController: UIViewController {
                                      OnboardingSlide(title: "Fast Delivery 🚚", description: "Getting orders from delivery stations to customers’ doorsteps is the “last mile” for delivery. We deliver goods to homes, businesses, Lockers, and even cars all over the world. This network is powered by hundreds of small businesses and tens of thousands of drivers that leverage Amazon technology.", image: UIImage(named: "slide2")!),
                                      OnboardingSlide(title: "Secure Payment 💳", description: "Online Pay is a way to check out quickly and securely online, and your eligible purchases of physical goods are protected by our A-to-z Guarantee.", image: UIImage(named: "slide3")!)]
     
-    
     // watching current page index for page control
     var currentPage = 0 {
         didSet {
@@ -71,7 +70,6 @@ final class OnboardingViewController: UIViewController {
     
     // to present authentication viewController
     private func goToAuth() {
-
         navigationController?.pushViewController(AuthenticationViewController(), animated: true)
     }
 }
@@ -100,7 +98,7 @@ extension OnboardingViewController: UICollectionViewDelegateFlowLayout {
         currentPage = Int(scrollView.contentOffset.x / width)
         
     }
-
+    
 }
 
 

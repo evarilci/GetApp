@@ -21,22 +21,28 @@ protocol SearchViewModelDelegate: AnyObject {
 protocol SearchViewModelProtocol {
     var delegate: SearchViewModelDelegate? { get set }
     var numberOfRows: Int {get}
+    
     func titleForRow(_ row: Int) -> String?
     func imageForRow(_ row: Int) -> URL?
+    
     var filteredProductArr: [Product] { get set }
     func fetchCategory()
     func fetchProduct()
+   
     
 }
 
 final class SearchViewModel: SearchViewModelProtocol  {
    
-    func fetchCategory() {
-        // TODO: - FETCH CATEGORY
-        
-    }
+   
      var products = [Product]() {
         didSet{
+            delegate?.fetchSucceded()
+        }
+    }
+    
+    var categories = Category() {
+        didSet {
             delegate?.fetchSucceded()
         }
     }
@@ -69,7 +75,6 @@ final class SearchViewModel: SearchViewModelProtocol  {
         
     }
     
-    
     func fetchProduct() {
         provider.request(.getProducts) { [weak self]  result in
             switch result {
@@ -79,6 +84,8 @@ final class SearchViewModel: SearchViewModelProtocol  {
                 do {
                     let products = try JSONDecoder().decode([Product].self, from: response.data)
                     self?.products = products
+                   
+                    
                     
                     self?.delegate?.fetchSucceded()
                 } catch  {
@@ -90,12 +97,30 @@ final class SearchViewModel: SearchViewModelProtocol  {
         }
     }
     
-    func inSearchFor(_ text: String) {
+    func fetchCategory() {
+        provider.request(.getCategories) { [weak self] result in
+            switch result {
+            case .failure(let error):
+                self?.delegate?.errorOcurred(error)
+            case .success(let response):
+                do {
+                    let category = try JSONDecoder().decode(Category.self, from: response.data)
+                    self?.categories = category
+                    self?.delegate?.fetchSucceded()
+                } catch {
+                    self?.delegate?.errorOcurred(error)
+                }
+            }
+        }
         
-        filteredProductArr = products.filter {$0.title!.lowercased().contains(text.lowercased())}
-        delegate?.fetchSucceded()
         
-}
+    }
+    
+    
+    func filterContentForSearchText(_ searchText: String, category: Category.Element? = nil) {
+        
+       filteredProductArr = products.filter {$0.title!.lowercased().contains(searchText.lowercased())}
+    }
 }
 
 

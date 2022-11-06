@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-final class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController, AlertPresentable {
     private lazy var mainView: DetailView = {
         let view = DetailView()
         view.delegate = self
@@ -30,7 +30,7 @@ final class DetailViewController: UIViewController {
         super.viewDidLoad()
         viewModel.delegate = self
         view = mainView
-        
+        mainView.delegate = self
         mainView.title = viewModel.title
         mainView.cost = viewModel.price
         mainView.descrip = viewModel.descrp
@@ -42,7 +42,7 @@ final class DetailViewController: UIViewController {
 }
 extension DetailViewController: DetailDelegate {
     func errorOcurred(_ error: Error) {
-        
+        showAlert(title: "Error", message: error.localizedDescription, cancelButtonTitle: "Cancel", handler: nil)
     }
     
     func passSucceed() {

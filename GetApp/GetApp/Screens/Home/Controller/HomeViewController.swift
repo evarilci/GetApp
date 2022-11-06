@@ -1,21 +1,18 @@
 //
 //  HomeViewController.swift
 //  GetApp
-//
 //  Created by Eymen Varilci on 2.11.2022.
-//
+
 
 import UIKit
 import Kingfisher
 
-final class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController, AlertPresentable {
     // MARK: - PROPERTIES
     private let viewModel = HomeViewModel()
     private let mainView = HomeCollectionView()
     
     // MARK: LIFE CYCLE METHODS
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,31 +23,30 @@ final class HomeViewController: UIViewController {
         viewModel.delegate = self
         viewModel.fetchProduct()
         viewModel.parseProduct()
+        fetchSucceded()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+//        viewModel.fetchProduct()
         fetchSucceded()
     }
-    
 }
 // MARK: - HomeViewModelDelegate
 extension HomeViewController: HomeViewModelDelegate {
     func errorOcurred(_ error: Error) {
-        print(error.localizedDescription)
+        showAlert(title: "Error", message: error.localizedDescription, cancelButtonTitle: "Cancel", handler: nil)
     }
     
     func fetchSucceded() {
         mainView.collectionView.reloadData()
     }
-
 }
 
 // MARK: - UICollectionViewDelegate
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let product = viewModel.goToEntityDetailFor(indexPath) else {return}
-        
         let viewModel = DetailViewModel(product: product)
         let viewController = DetailViewController(viewModel: viewModel)
         navigationController?.pushViewController(viewController, animated: true)
