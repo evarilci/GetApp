@@ -59,21 +59,26 @@
 
 ### Ekran Görüntüleri
 
-![Uygulama Ekran Görüntüsü](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-![Uygulama Ekran Görüntüsü](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-![Uygulama Ekran Görüntüsü](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-![Uygulama Ekran Görüntüsü](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-![Uygulama Ekran Görüntüsü](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-![Uygulama Ekran Görüntüsü](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-![Uygulama Ekran Görüntüsü](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-![Uygulama Ekran Görüntüsü](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-![Uygulama Ekran Görüntüsü](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Uygulama Ekran Görüntüsü](https://github.com/evarilci/GetApp/blob/main/Images/1.png)
+![Uygulama Ekran Görüntüsü](https://github.com/evarilci/GetApp/blob/main/Images/2.png)
+![Uygulama Ekran Görüntüsü](https://github.com/evarilci/GetApp/blob/main/Images/3.png)
+![Uygulama Ekran Görüntüsü](https://github.com/evarilci/GetApp/blob/main/Images/4.png)
+![Uygulama Ekran Görüntüsü](https://github.com/evarilci/GetApp/blob/main/Images/5.png)
+![Uygulama Ekran Görüntüsü](https://github.com/evarilci/GetApp/blob/main/Images/6.png)
+![Uygulama Ekran Görüntüsü](https://github.com/evarilci/GetApp/blob/main/Images/7.png)
+![Uygulama Ekran Görüntüsü](https://github.com/evarilci/GetApp/blob/main/Images/8.png)
+![Uygulama Ekran Görüntüsü](https://github.com/evarilci/GetApp/blob/main/Images/9.png)
+![Uygulama Ekran Görüntüsü](https://github.com/evarilci/GetApp/blob/main/Images/10.png)
+![Uygulama Ekran Görüntüsü](https://github.com/evarilci/GetApp/blob/main/Images/11.png)
+![Uygulama Ekran Görüntüsü](https://github.com/evarilci/GetApp/blob/main/Images/12.png)
+![Uygulama Ekran Görüntüsü](https://github.com/evarilci/GetApp/blob/main/Images/13.png)
+![Uygulama Ekran Görüntüsü](https://github.com/evarilci/GetApp/blob/main/Images/14.png)
 
   
 
 ### Demo
 
-Demoya gif veya bağlantı ekleyin
+//
 
   
 ## Özellikler
