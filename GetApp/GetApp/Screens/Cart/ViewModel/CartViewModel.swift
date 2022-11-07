@@ -17,21 +17,30 @@ protocol CartViewModelDelegate: AnyObject {
 }
 
 protocol CartViewModelProtocol {
+    var delegate: CartViewModelDelegate? { get set}
    func getData()
 }
 
-final class CartViewModel: CartViewModelProtocol {
-    weak var delegate : CartViewModelDelegate?
+class CartViewModel: CartViewModelProtocol {
+    
+    var delegate : CartViewModelDelegate?
    
     var productTitles = [String]() {
         didSet {
             delegate?.fetchSucceded()
-            print("PRODUCT TITLES FROM FIREBASE: \(productTitles.description)")
+        }
+    }
+    
+    
+    var productPrices = [Double]() {
+        didSet {
+            delegate?.fetchSucceded()
         }
     }
     
     func titleForRow(_ row: Int) -> String? {
         productTitles[row]
+        
     }
     
     var numberOfRows: Int {
@@ -50,8 +59,9 @@ final class CartViewModel: CartViewModelProtocol {
                 if snapshot?.isEmpty != true && snapshot != nil {
                     for document in snapshot!.documents {
                          let title = document.get("title") as! String
+                        let price = document.get("price") as! Double
                         self.productTitles.append(title)
-                            //self.delegate?.fetchSucceded()
+                        self.productPrices.append(price)
                         self.delegate?.fetchSucceded()
                     }
                     self.delegate?.fetchSucceded()

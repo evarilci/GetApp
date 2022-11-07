@@ -20,9 +20,7 @@ protocol DetailDelegate: AnyObject {
 final class DetailViewModel {
     var delegate : DetailDelegate?
     var product : ProductEntity
-    
-    
-    
+
     
     var title: String? {
         product.title
@@ -53,11 +51,13 @@ final class DetailViewModel {
         let db = Firestore.firestore()
         
         guard let title = title else {return}
+        let uuid = UUID().uuidString
         
-        let firestorePost = ["title": title, "category": category,  "description": descrp, "price": price, "owner": Auth.auth().currentUser!.email] as! [String:Any]
-        db.collection("\(Auth.auth().currentUser!.uid)_CART").document(title).setData(firestorePost) {err in
+        let firestorePost = ["title": title, "category": category!,  "description": descrp!, "price": price!, "owner": Auth.auth().currentUser!.email!] as! [String:Any]
+        db.collection("\(Auth.auth().currentUser!.uid)_CART").document("\(title)+\(uuid)").setData(firestorePost) {err in
             if let err = err {
                 self.delegate?.errorOcurred(err)
+                print("error")
             } else {
                 
             }

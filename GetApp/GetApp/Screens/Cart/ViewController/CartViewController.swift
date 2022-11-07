@@ -7,17 +7,18 @@
 
 import UIKit
 
-class CartViewController: UIViewController {
+class CartViewController: UIViewController, AlertPresentable {
     private var viewModel = CartViewModel()
     
     private let mainView = CartView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        viewModel.delegate = self
         view = mainView
         mainView.setTableViewDelegates(delegate: self, datasource: self)
         viewModel.getData()
+        fetchSucceded()
         
     }
    
@@ -25,16 +26,13 @@ class CartViewController: UIViewController {
 
 extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if viewModel.productTitles.count > 0 {
-            fetchSucceded()
-        }
-        return viewModel.productTitles.count
+        return viewModel.numberOfRows
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cartCell", for: indexPath) as! CartTableViewCell
-        cell.title = viewModel.productTitles[indexPath.row]
+        cell.title = viewModel.titleForRow(indexPath.row)
         return cell
     }
 }
@@ -42,7 +40,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension CartViewController: CartViewModelDelegate {
     func errorOcurred(_ error: Error) {
-        print(error.localizedDescription)
+        showAlert(title: "Error", message: error.localizedDescription, cancelButtonTitle: "Canlec", handler: nil)
     }
     
     func fetchSucceded() {

@@ -18,6 +18,18 @@ class CartTableViewCell: UITableViewCell {
         }
     }
     
+    var price: String? {
+        set {
+            
+            titleLabel.text = newValue
+        }
+        get {
+            titleLabel.text
+        }
+    }
+    
+    
+    private var priceLbel = UILabel()
     private var titleLabel = UILabel()
 
     
@@ -34,18 +46,33 @@ class CartTableViewCell: UITableViewCell {
     
     func configureTitleLable() {
         addSubview(titleLabel)
-        titleLabel.font = UIFont(name: "Helvetica", size: 17)
-        titleLabel.lineBreakMode = .byCharWrapping
-        titleLabel.numberOfLines = .zero
+        titleLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+        titleLabel.lineBreakMode = .byClipping
+        titleLabel.numberOfLines = 1
+        titleLabel.textAlignment = .left
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            make.width.equalToSuperview().offset(-8)
+            make.width.equalToSuperview().offset(-16)
             make.height.equalTo(40)
         }
         titleLabel.sizeToFit()
     }
     
-
+    func configurePriceLable() {
+        addSubview(priceLbel)
+        priceLbel.font = UIFont.systemFont(ofSize: 15, weight: .heavy)
+        priceLbel.lineBreakMode = .byClipping
+        priceLbel.numberOfLines = 1
+        priceLbel.textAlignment = .left
+        priceLbel.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.width.equalToSuperview().offset(-16)
+            make.height.equalTo(40)
+        }
+        
+    }
 }

@@ -17,15 +17,8 @@ final class CartView: UIView {
         super.init(frame: .zero)
         setTableViewConstraints()
         tableView.register(CartTableViewCell.self, forCellReuseIdentifier: "cartCell")
-        tableView.rowHeight = 70
+        tableView.rowHeight = 100
     }
-    
-//     override init(frame: CGRect) {
-//         super.init(frame: frame)
-//         
-//         
-//         
-//     }
      
      required init?(coder: NSCoder) {
          fatalError("init(coder:) has not been implemented")
@@ -48,23 +41,6 @@ final class CartView: UIView {
      }
     
 
-//   lazy var tableView = UITableView()
-//
-//    func tableViewConstraints() {
-//        addSubview(tableView)
-//        tableView.translatesAutoresizingMaskIntoConstraints = false
-//
-//        NSLayoutConstraint.activate([
-//            tableView.topAnchor.constraint(equalTo: self.topAnchor),
-//            tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-//            tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-//            tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor,constant: .screenWidth / 4)])
-//    }
-//
-//    func setTableViewDelegate(_ delegate: UITableViewDelegate,
-//                                   andDataSource dataSource: UITableViewDataSource) {
-//        tableView.delegate = delegate
-//        tableView.dataSource = dataSource
-//    }
+
 
 }

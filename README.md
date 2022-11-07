@@ -7,7 +7,7 @@
  GetApp is a fully fledged marketplace app where user can discover through variaty of products and shop easily. User can explore products, search through keywords, add products to their shopping cart and buy them whenever they desire.
 
 ---
-   GetApp uses fakestore api to display products and Firebase for backend solution. User can create an account with email&password and login. GetApp lists products on homepage. User can reach product's details by tapping on them. Getable also has a shopping cart for multiple product selections.
+GetApp uses fakestore api to display products and Firebase for backend solution. User can create an account with email&password and login. GetApp lists products on homepage. User can reach product's details by tapping on them. On search screen user can filter products depending category or simply search by typing. GetApp also has a shopping cart for multiple product selections whic is stored on firestore. Every shopping cart is dedicated to single user.
 
 ---
 
@@ -81,11 +81,14 @@
 //
 
   
-## Özellikler
+## Features
 
 - User Authentication
 - Explore and search product
-- iOS 12 supported
+- iOS 12 compatible
+- Supports different screens sizes from iPhone SE(3) to iPhone 14 Pro Max.
+
+
 
   
 ## Find me on
@@ -98,3 +101,4 @@
 
 
   
+
