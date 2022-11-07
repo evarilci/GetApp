@@ -26,8 +26,7 @@ protocol SearchViewModelProtocol {
     func fetchProduct()
 }
 
-final class SearchViewModel: SearchViewModelProtocol  {
-    
+final class SearchViewModel: SearchViewModelProtocol, RealmReachable  {
     
     var products = [Product]() {
         didSet{
@@ -53,7 +52,7 @@ final class SearchViewModel: SearchViewModelProtocol  {
         }
     }
     
-    private var entity = [ProductEntity]() {
+    private var Searchentity = [ProductEntity]() {
         didSet {
             delegate?.fetchSucceded()
         }
@@ -76,7 +75,7 @@ final class SearchViewModel: SearchViewModelProtocol  {
     }
     
     func imageForRow(_ row: Int) -> URL? {
-        return products[row].imageURL
+        products[row].imageURL
         
         
     }
@@ -115,6 +114,16 @@ final class SearchViewModel: SearchViewModelProtocol  {
                 self!.delegate?.fetchSucceded()
             }
         }
+    }
+    
+    func goToEntityDetailFor(_ indexPath: IndexPath) -> ProductEntity? {
+        Searchentity[indexPath.row]
+    }
+    
+    func parseProduct() {
+        
+        Searchentity = realm.objects(ProductEntity.self).map { $0 }
+        delegate?.fetchSucceded()
     }
     
     // filtering search results

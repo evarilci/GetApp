@@ -28,16 +28,20 @@ final class DetailViewController: UIViewController, AlertPresentable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tabBarController?.tabBar.isHidden = true
         viewModel.delegate = self
         view = mainView
-        mainView.delegate = self
         mainView.title = viewModel.title
         mainView.cost = viewModel.price
         mainView.descrip = viewModel.descrp
         mainView.category = viewModel.category
         mainView.imageView.kf.setImage(with: viewModel.image)
-        
-      
+        mainView.addToCartButton.addTarget(self, action: #selector(addToCart), for: .touchUpInside)
+    }
+    
+    @objc func addToCart() {
+        viewModel.addToCartOnFirestore()
     }
 }
 extension DetailViewController: DetailDelegate {

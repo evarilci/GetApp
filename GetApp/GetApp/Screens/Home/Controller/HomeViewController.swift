@@ -18,6 +18,10 @@ final class HomeViewController: UIViewController, AlertPresentable {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = UIColor(named: "AccentColor")
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cart", style: .plain, target: self, action: #selector(goCart))
+        navigationItem.rightBarButtonItem?.tintColor = .red
+        navigationItem.largeTitleDisplayMode = .never
+        
         view = mainView
         mainView.setCollectionViewDelegate(self, andDataSource: self)
         viewModel.delegate = self
@@ -26,12 +30,11 @@ final class HomeViewController: UIViewController, AlertPresentable {
         fetchSucceded()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        viewModel.fetchProduct()
-        viewModel.parseProduct()
-        fetchSucceded()
+    @objc func goCart() {
+        self.navigationController?.pushViewController(CartViewController(), animated: true)
+        
     }
+    
 }
 // MARK: - HomeViewModelDelegate
 extension HomeViewController: HomeViewModelDelegate {

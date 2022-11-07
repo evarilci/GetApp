@@ -8,6 +8,7 @@
 import UIKit
 
 
+
 final class DetailView: UIView {
     
      var delegate: DetailDelegate?
@@ -36,7 +37,7 @@ final class DetailView: UIView {
     var descrip: String? {
         didSet {
             descriptionLabel.numberOfLines = .zero
-            descriptionLabel.font = .systemFont(ofSize: 17)
+            descriptionLabel.font = .systemFont(ofSize: 12)
             descriptionLabel.textAlignment = .left
             descriptionLabel.text = descrip ?? "-"
         }
@@ -58,7 +59,7 @@ final class DetailView: UIView {
     private let descriptionLabel = UILabel()
     private let costLabel = UILabel()
     private let categoryLabel = UILabel()
-    private let addToCartButton : UIButton = {
+    let addToCartButton : UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor(named: "AccentColor")
         button.layer.masksToBounds = true
@@ -67,10 +68,11 @@ final class DetailView: UIView {
         return button
     }()
     
+    
+    
     // MARK: - INIT
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         
         
         backgroundColor = UIColor(named: "Background")
@@ -95,7 +97,7 @@ final class DetailView: UIView {
             titleLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16.0),
             titleLabel.widthAnchor.constraint(equalToConstant: .screenWidth),
             titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16.0),
-            titleLabel.heightAnchor.constraint(equalToConstant: 75.0)
+            titleLabel.heightAnchor.constraint(equalToConstant: 100.0)
         ])
         
         addSubview(descriptionLabel)
@@ -105,7 +107,7 @@ final class DetailView: UIView {
             descriptionLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16.0),
             descriptionLabel.widthAnchor.constraint(equalToConstant:  .screenWidth),
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8.0),
-            descriptionLabel.heightAnchor.constraint(equalToConstant: 150.0)
+            descriptionLabel.heightAnchor.constraint(equalToConstant: 200.0)
         ])
         
         addSubview(costLabel)
@@ -137,5 +139,7 @@ final class DetailView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+   
     
 }

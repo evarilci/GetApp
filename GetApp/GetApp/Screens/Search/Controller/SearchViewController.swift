@@ -31,7 +31,7 @@ final class SearchViewController: UIViewController, AlertPresentable {
     
         // fetch from api
         viewModel.fetchProduct()
-       
+        viewModel.parseProduct()
         // searchbar preferences
         setupSearchBar()
     }
@@ -78,7 +78,12 @@ extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
-
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let product = viewModel.goToEntityDetailFor(indexPath) else {return}
+        let viewModel = DetailViewModel(product: product)
+        let viewController = DetailViewController(viewModel: viewModel)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // here we checking filtering states

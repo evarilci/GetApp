@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import FirebaseFirestore
+import FirebaseAuth
 
 
 protocol DetailDelegate: AnyObject {
@@ -16,13 +18,11 @@ protocol DetailDelegate: AnyObject {
 }
 
 final class DetailViewModel {
-     var delegate : DetailDelegate?
-     var product : ProductEntity
+    var delegate : DetailDelegate?
+    var product : ProductEntity
     
     
-//    func addToCartOnFirestore {
-//        
-//    }
+    
     
     var title: String? {
         product.title
@@ -48,4 +48,20 @@ final class DetailViewModel {
         self.product = product
     }
     
+    
+    func addToCartOnFirestore() {
+        let db = Firestore.firestore()
+        
+        guard let title = title else {return}
+        
+        let firestorePost = ["title": title, "category": category,  "description": descrp, "price": price, "owner": Auth.auth().currentUser!.email] as! [String:Any]
+        db.collection("\(Auth.auth().currentUser!.uid)_CART").document(title).setData(firestorePost) {err in
+            if let err = err {
+                self.delegate?.errorOcurred(err)
+            } else {
+                
+            }
+        }
+        
+    }
 }

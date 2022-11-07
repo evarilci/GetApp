@@ -35,6 +35,10 @@
 		E5888E5C2909BD5000045FB3 /* GetAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5888E5B2909BD5000045FB3 /* GetAppUITests.swift */; };
 		E5888E5E2909BD5000045FB3 /* GetAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5888E5D2909BD5000045FB3 /* GetAppUITestsLaunchTests.swift */; };
 		E591478429184DDF006486BE /* FireBaseFireStoreAccessible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E591478329184DDF006486BE /* FireBaseFireStoreAccessible.swift */; };
+		E5B7900C291875EA0085A7DF /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B7900B291875EA0085A7DF /* CartView.swift */; };
+		E5B7900E291876030085A7DF /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B7900D291876030085A7DF /* CartViewModel.swift */; };
+		E5B7901029187B690085A7DF /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B7900F29187B690085A7DF /* CartViewController.swift */; };
+		E5B790122918830A0085A7DF /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B790112918830A0085A7DF /* CartTableViewCell.swift */; };
 		E5BA67472912F27700C7C311 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BA67462912F27700C7C311 /* TabBarViewController.swift */; };
 		E5BA674A2912F2A300C7C311 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BA67492912F2A300C7C311 /* HomeViewController.swift */; };
 		E5BA674E2912F2C400C7C311 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BA674D2912F2C400C7C311 /* SearchViewController.swift */; };
@@ -107,6 +111,10 @@
 		E5888E5B2909BD5000045FB3 /* GetAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppUITests.swift; sourceTree = "<group>"; };
 		E5888E5D2909BD5000045FB3 /* GetAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E591478329184DDF006486BE /* FireBaseFireStoreAccessible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseFireStoreAccessible.swift; sourceTree = "<group>"; };
+		E5B7900B291875EA0085A7DF /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		E5B7900D291876030085A7DF /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
+		E5B7900F29187B690085A7DF /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		E5B790112918830A0085A7DF /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		E5BA67462912F27700C7C311 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		E5BA67492912F2A300C7C311 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E5BA674D2912F2C400C7C311 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -294,6 +302,7 @@
 		E5888E6B2909BD6300045FB3 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				E5B79007291875980085A7DF /* Cart */,
 				E5888E402909BD4C00045FB3 /* Main.storyboard */,
 				E5C76C19291470AD000247EB /* Detail */,
 				E5BA674F2912F2CA00C7C311 /* Profile */,
@@ -361,6 +370,41 @@
 				E5888E452909BD5000045FB3 /* LaunchScreen.storyboard */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		E5B79007291875980085A7DF /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				E5B7900A291875CA0085A7DF /* ViewController */,
+				E5B79009291875B80085A7DF /* View */,
+				E5B79008291875AC0085A7DF /* ViewModel */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		E5B79008291875AC0085A7DF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E5B7900D291876030085A7DF /* CartViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E5B79009291875B80085A7DF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E5B7900B291875EA0085A7DF /* CartView.swift */,
+				E5B790112918830A0085A7DF /* CartTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E5B7900A291875CA0085A7DF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E5B7900F29187B690085A7DF /* CartViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		E5BA67452912F23B00C7C311 /* TabBar */ = {
@@ -741,9 +785,12 @@
 				E5C76C032914472F000247EB /* NetworkLayer.swift in Sources */,
 				E5D6A0AF290C80D200EC573B /* SignInView.swift in Sources */,
 				E5833026290B357800132EBB /* UIView+Extension.swift in Sources */,
+				E5B790122918830A0085A7DF /* CartTableViewCell.swift in Sources */,
 				E5C76C1129145A87000247EB /* HomeCollectionView.swift in Sources */,
 				E5C76C0A29144A5F000247EB /* HomeViewModel.swift in Sources */,
 				E5784F872911D85500581631 /* AuthenticationView.swift in Sources */,
+				E5B7900E291876030085A7DF /* CartViewModel.swift in Sources */,
+				E5B7900C291875EA0085A7DF /* CartView.swift in Sources */,
 				E5CB74B429119D94007E30C7 /* AuthenticationViewController.swift in Sources */,
 				E591478429184DDF006486BE /* FireBaseFireStoreAccessible.swift in Sources */,
 				E55F71E0291588B4005225A3 /* DetailView.swift in Sources */,
@@ -767,6 +814,7 @@
 				E5CB74B82911A1A7007E30C7 /* Alert.swift in Sources */,
 				E55F71E629159B61005225A3 /* DetailViewModel.swift in Sources */,
 				E543AA4F290DB80C00372ADB /* GATextView.swift in Sources */,
+				E5B7901029187B690085A7DF /* CartViewController.swift in Sources */,
 				E5784F932911E0C400581631 /* AuthViewModel.swift in Sources */,
 				E5888E3B2909BD4C00045FB3 /* AppDelegate.swift in Sources */,
 				E5C76C1329145AF9000247EB /* CGFloat+Extension.swift in Sources */,
