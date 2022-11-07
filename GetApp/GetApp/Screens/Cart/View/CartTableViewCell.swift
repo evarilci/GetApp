@@ -9,7 +9,6 @@ import UIKit
 
 class CartTableViewCell: UITableViewCell {
     
-    
     var title: String? {
         set {
             titleLabel.text = newValue
@@ -21,20 +20,20 @@ class CartTableViewCell: UITableViewCell {
     
     private var titleLabel = UILabel()
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureTitleLable()
-        
     }
-
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        
-//    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+  
     
     func configureTitleLable() {
-        contentView.addSubview(titleLabel)
+        addSubview(titleLabel)
         titleLabel.font = UIFont(name: "Helvetica", size: 17)
         titleLabel.lineBreakMode = .byCharWrapping
         titleLabel.numberOfLines = .zero

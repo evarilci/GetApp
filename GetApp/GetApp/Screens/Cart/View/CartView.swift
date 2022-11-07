@@ -13,14 +13,19 @@ final class CartView: UIView {
      var tableView = UITableView()
      
      
-     override init(frame: CGRect) {
-         super.init(frame: frame)
-         setTableViewConstraints()
-         tableView.register(CartTableViewCell.self, forCellReuseIdentifier: "cartCell")
-         tableView.rowHeight = 70
-         
-         
-     }
+    init() {
+        super.init(frame: .zero)
+        setTableViewConstraints()
+        tableView.register(CartTableViewCell.self, forCellReuseIdentifier: "cartCell")
+        tableView.rowHeight = 70
+    }
+    
+//     override init(frame: CGRect) {
+//         super.init(frame: frame)
+//         
+//         
+//         
+//     }
      
      required init?(coder: NSCoder) {
          fatalError("init(coder:) has not been implemented")

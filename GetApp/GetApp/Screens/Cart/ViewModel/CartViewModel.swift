@@ -49,16 +49,18 @@ final class CartViewModel: CartViewModelProtocol {
             } else {
                 if snapshot?.isEmpty != true && snapshot != nil {
                     for document in snapshot!.documents {
-                        if let title = document.get("title") as? String {
-                            self.productTitles.append(title)
-                            self.delegate?.fetchSucceded()
-                        }
+                         let title = document.get("title") as! String
+                        self.productTitles.append(title)
+                            //self.delegate?.fetchSucceded()
+                        self.delegate?.fetchSucceded()
                     }
                     self.delegate?.fetchSucceded()
                 } else {
                     self.delegate?.errorOcurred(error!)
                 }
+                self.delegate?.fetchSucceded()
             }
+            
         }
     }
     

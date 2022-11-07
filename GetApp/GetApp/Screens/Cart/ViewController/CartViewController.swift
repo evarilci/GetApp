@@ -14,10 +14,10 @@ class CartViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view = mainView
         mainView.setTableViewDelegates(delegate: self, datasource: self)
         viewModel.getData()
-        
         
     }
    
@@ -25,20 +25,20 @@ class CartViewController: UIViewController {
 
 extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.numberOfRows
+        if viewModel.productTitles.count > 0 {
+            fetchSucceded()
+        }
+        return viewModel.productTitles.count
+        
+       //return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cartCell", for: indexPath) as! CartTableViewCell
-        cell.title = viewModel.titleForRow(indexPath.row)
-        
-        
+        cell.title = viewModel.productTitles[indexPath.row]
+       // cell.title = "hello world"
         return cell
     }
-    
-    
 }
 
 
