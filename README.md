@@ -78,7 +78,12 @@ GetApp uses fakestore api to display products and Firebase for backend solution.
 
 ### Demo
 
-//
+![Alt Text](https://drive.google.com/file/d/1cc_VcJQqtstSqwDDTRCq1I2vOFyUrSL1/view?usp=share_link)
+![Alt Text](https://drive.google.com/file/d/1cc_VcJQqtstSqwDDTRCq1I2vOFyUrSL1/view?usp=share_link)
+![Alt Text](https://drive.google.com/file/d/1cc_VcJQqtstSqwDDTRCq1I2vOFyUrSL1/view?usp=share_link)
+![Alt Text](https://drive.google.com/file/d/1cc_VcJQqtstSqwDDTRCq1I2vOFyUrSL1/view?usp=share_link)
+![Alt Text](https://drive.google.com/file/d/1cc_VcJQqtstSqwDDTRCq1I2vOFyUrSL1/view?usp=share_link)
+![Alt Text](https://drive.google.com/file/d/1cc_VcJQqtstSqwDDTRCq1I2vOFyUrSL1/view?usp=share_link)
 
   
 ## Features
