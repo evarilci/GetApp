@@ -47,7 +47,7 @@ final class DetailView: UIView {
         didSet {
             
             costLabel.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
-            costLabel.textColor = UIColor(named: "Cost")
+            costLabel.textColor = UIColor(named: "cost")
             costLabel.text = "\(cost ?? 0)$"
             
         }

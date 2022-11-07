@@ -1,6 +1,6 @@
 
  
- ![Logo](https://icons.iconarchive.com/icons/custom-icon-design/flatastic-4/512/Shopping-bag-blue-icon.png)
+ ![Logo](https://github.com/evarilci/GetApp/blob/main/Images/mainLogo.png)
  
  # GetApp
 
@@ -10,9 +10,6 @@
    GetApp uses fakestore api to display products and Firebase for backend solution. User can create an account with email&password and login. GetApp lists products on homepage. User can reach product's details by tapping on them. Getable also has a shopping cart for multiple product selections.
 
 ---
-
-
-
 
 
 ### Used Technologies

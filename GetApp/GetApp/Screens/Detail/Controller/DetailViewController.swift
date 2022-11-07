@@ -29,7 +29,6 @@ final class DetailViewController: UIViewController, AlertPresentable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tabBarController?.tabBar.isHidden = true
         viewModel.delegate = self
         view = mainView
         mainView.title = viewModel.title
