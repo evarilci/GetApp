@@ -30,13 +30,11 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return viewModel.productTitles.count
         
-       //return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cartCell", for: indexPath) as! CartTableViewCell
         cell.title = viewModel.productTitles[indexPath.row]
-       // cell.title = "hello world"
         return cell
     }
 }
