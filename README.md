@@ -78,14 +78,15 @@ GetApp uses fakestore api to display products and Firebase for backend solution.
 
 ### Demo
 
-![Alt Text](https://drive.google.com/file/d/1cc_VcJQqtstSqwDDTRCq1I2vOFyUrSL1/view?usp=share_link)
-![Alt Text](https://drive.google.com/file/d/1cc_VcJQqtstSqwDDTRCq1I2vOFyUrSL1/view?usp=share_link)
-![Alt Text](https://drive.google.com/file/d/1cc_VcJQqtstSqwDDTRCq1I2vOFyUrSL1/view?usp=share_link)
-![Alt Text](https://drive.google.com/file/d/1cc_VcJQqtstSqwDDTRCq1I2vOFyUrSL1/view?usp=share_link)
-![Alt Text](https://drive.google.com/file/d/1cc_VcJQqtstSqwDDTRCq1I2vOFyUrSL1/view?usp=share_link)
-![Alt Text](https://drive.google.com/file/d/1cc_VcJQqtstSqwDDTRCq1I2vOFyUrSL1/view?usp=share_link)
+![onboarding_gif](https://user-images.githubusercontent.com/10756418/200318195-d2fb3033-2e07-4226-8272-e62f2d66e916.gif)
+![Auth_gif](https://user-images.githubusercontent.com/10756418/200318321-22649d77-90a0-4362-9834-306a2dac7adc.gif)
+![Home_gif](https://user-images.githubusercontent.com/10756418/200318474-f931a525-349c-457e-bca1-fb53e831c4f6.gif)
+![close_gif](https://user-images.githubusercontent.com/10756418/200318798-d04c6ae8-73e2-4724-983a-2aac970e9c9e.gif)
+![cart_gif](https://user-images.githubusercontent.com/10756418/200318926-293a8fca-48bf-4258-8460-46ce8fe51d46.gif)
+![logout_gif](https://user-images.githubusercontent.com/10756418/200319102-cbf70c90-bf79-4390-b526-d6462478ac36.gif)
 
-  
+
+
 ## Features
 
 - User Authentication
