@@ -66,7 +66,7 @@ class CartViewModel: CartViewModelProtocol {
                     }
                     self.delegate?.fetchSucceded()
                 } else {
-                    self.delegate?.errorOcurred(error!)
+                   // self.delegate?.errorOcurred(error?)
                 }
                 self.delegate?.fetchSucceded()
             }

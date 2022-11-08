@@ -26,21 +26,29 @@ class CartViewController: UIViewController, AlertPresentable {
 
 extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRows
-        
+        if viewModel.productTitles.isEmpty {
+            return 1
+        } else {
+            return viewModel.numberOfRows
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cartCell", for: indexPath) as! CartTableViewCell
-        cell.title = viewModel.titleForRow(indexPath.row)
-        return cell
+        if viewModel.productTitles.isEmpty {
+            cell.title = "Cart Empty!"
+            return cell
+        } else {
+            cell.title = viewModel.titleForRow(indexPath.row)
+            return cell
+        }
     }
 }
 
 
 extension CartViewController: CartViewModelDelegate {
     func errorOcurred(_ error: Error) {
-        showAlert(title: "Error", message: error.localizedDescription, cancelButtonTitle: "Canlec", handler: nil)
+        showAlert(title: "Error", message: error.localizedDescription, cancelButtonTitle: "Cancel", handler: nil)
     }
     
     func fetchSucceded() {
