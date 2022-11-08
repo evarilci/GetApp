@@ -52,10 +52,10 @@ GetApp uses fakestore api to display products and Firebase for backend solution.
 
 | Renk             | Hex                                                                |
 | ----------------- | ------------------------------------------------------------------ |
-| Accent Color | ![#ED4861](https://via.placeholder.com/10/ED4861?text=+) #ED4861 |
-| Sum Color | ![#2ECC71](https://via.placeholder.com/10/2ECC71?text=+) #2ECC71 |
-| Secondary Color | ![#284387](https://via.placeholder.com/10/284387?text=+) #284387 |
-| Background Color | ![#f7f9f7](https://via.placeholder.com/10/f7f9f7?text=+) #f7f9f7 | 
+| Accent Color | ![#ED4861](https://placehold.co/15x15/ED4861/ED4861.pn) #ED4861 |
+| Sum Color | ![#2ECC71](https://placehold.co/15x15/2ECC71/2ECC71.pn) #2ECC71 |
+| Secondary Color | ![#284387](https://placehold.co/15x15/284387/284387.pn) #284387 |
+| Background Color | ![#f7f9f7](https://placehold.co/15x15/f7f9f7/f7f9f7.pn) #f7f9f7 | 
 
 ### Ekran Görüntüleri
 
