@@ -40,7 +40,10 @@ final class DetailViewController: UIViewController, AlertPresentable {
     }
     
     @objc func addToCart() {
-        viewModel.addToCartOnFirestore()
+        showAlert(title: "Product will be added to your Shopping Cart", message: "press Okay to proceed", cancelButtonTitle: "Cancel") { _ in
+            self.viewModel.addToCartOnFirestore()
+        }
+        
     }
 }
 extension DetailViewController: DetailDelegate {

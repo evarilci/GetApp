@@ -37,7 +37,7 @@ final class DetailView: UIView {
     var descrip: String? {
         didSet {
             descriptionLabel.numberOfLines = .zero
-            descriptionLabel.font = .systemFont(ofSize: 12)
+            descriptionLabel.font = .systemFont(ofSize: 15)
             descriptionLabel.textAlignment = .left
             descriptionLabel.text = descrip ?? "-"
         }
@@ -82,7 +82,7 @@ final class DetailView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8.0),
-            imageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: -10.0),
+            imageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0.0),
             
             imageView.heightAnchor.constraint(equalToConstant: .screenWidth / 3),
             imageView.widthAnchor.constraint(equalToConstant: .screenWidth / 3)
