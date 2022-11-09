@@ -19,8 +19,8 @@ final class HomeViewController: UIViewController, AlertPresentable {
         navigationController?.navigationBar.barTintColor = UIColor(named: "AccentColor")
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cart", style: .plain, target: self, action: #selector(goCart))
-        navigationItem.rightBarButtonItem?.tintColor = .red
-        navigationItem.largeTitleDisplayMode = .never
+        navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "Secondary")
+        navigationItem.largeTitleDisplayMode = .automatic
         
         view = mainView
         mainView.setCollectionViewDelegate(self, andDataSource: self)
@@ -34,19 +34,7 @@ final class HomeViewController: UIViewController, AlertPresentable {
         self.navigationController?.pushViewController(CartViewController(), animated: true)
         
     }
-    
 }
-// MARK: - HomeViewModelDelegate
-extension HomeViewController: HomeViewModelDelegate {
-    func errorOcurred(_ error: Error) {
-        showAlert(title: "Error", message: error.localizedDescription, cancelButtonTitle: "Cancel", handler: nil)
-    }
-    
-    func fetchSucceded() {
-        mainView.collectionView.reloadData()
-    }
-}
-
 // MARK: - UICollectionViewDelegate
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -70,5 +58,16 @@ extension HomeViewController: UICollectionViewDataSource {
             collectionView.reloadData()
         }
         return cell
+    }
+}
+
+// MARK: - HomeViewModelDelegate
+extension HomeViewController: HomeViewModelDelegate {
+    func errorOcurred(_ error: Error) {
+        showAlert(title: "Error", message: error.localizedDescription, cancelButtonTitle: "Cancel", handler: nil)
+    }
+    
+    func fetchSucceded() {
+        mainView.collectionView.reloadData()
     }
 }

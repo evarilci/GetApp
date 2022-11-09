@@ -37,6 +37,7 @@ final class DetailViewController: UIViewController, AlertPresentable {
         mainView.category = viewModel.category
         mainView.imageView.kf.setImage(with: viewModel.image)
         mainView.addToCartButton.addTarget(self, action: #selector(addToCart), for: .touchUpInside)
+        navigationItem.largeTitleDisplayMode = .never
     }
     
     @objc func addToCart() {

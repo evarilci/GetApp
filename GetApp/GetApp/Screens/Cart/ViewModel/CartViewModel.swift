@@ -18,13 +18,13 @@ protocol CartViewModelDelegate: AnyObject {
 
 protocol CartViewModelProtocol {
     var delegate: CartViewModelDelegate? { get set}
-   func getData()
+    func getData()
 }
 
-class CartViewModel: CartViewModelProtocol {
+final class CartViewModel: CartViewModelProtocol, FireBaseFireStoreAccessible {
     
     var delegate : CartViewModelDelegate?
-   
+    
     var productTitles = [String]() {
         didSet {
             delegate?.fetchSucceded()
@@ -50,15 +50,13 @@ class CartViewModel: CartViewModelProtocol {
     
     func getData() {
         
-        let db = Firestore.firestore()
-        
         db.collection("\(Auth.auth().currentUser!.uid)_CART").addSnapshotListener { snapshot, error in
             if error != nil {
                 self.delegate?.errorOcurred(error!)
             } else {
                 if snapshot?.isEmpty != true && snapshot != nil {
                     for document in snapshot!.documents {
-                         let title = document.get("title") as! String
+                        let title = document.get("title") as! String
                         let price = document.get("price") as! Double
                         self.productTitles.append(title)
                         self.productPrices.append(price)
@@ -66,12 +64,9 @@ class CartViewModel: CartViewModelProtocol {
                     }
                     self.delegate?.fetchSucceded()
                 } else {
-                   // self.delegate?.errorOcurred(error?)
                 }
                 self.delegate?.fetchSucceded()
             }
-            
         }
     }
-    
 }

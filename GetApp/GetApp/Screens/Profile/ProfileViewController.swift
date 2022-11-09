@@ -17,7 +17,7 @@ final class ProfileViewController: UIViewController, AlertPresentable {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(logOut))
         navigationItem.rightBarButtonItem?.tintColor = .red
-        navigationItem.largeTitleDisplayMode = .never
+        navigationItem.largeTitleDisplayMode = .automatic
 
     }
     @objc

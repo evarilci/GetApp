@@ -17,7 +17,7 @@ protocol DetailDelegate: AnyObject {
     
 }
 
-final class DetailViewModel {
+final class DetailViewModel: FireBaseFireStoreAccessible {
     var delegate : DetailDelegate?
     var product : ProductEntity
 
@@ -48,13 +48,12 @@ final class DetailViewModel {
     
     
     func addToCartOnFirestore() {
-        let db = Firestore.firestore()
         
         guard let title = title else {return}
         let uuid = UUID().uuidString
         
         let firestorePost = ["title": title, "category": category!,  "description": descrp!, "price": price!, "owner": Auth.auth().currentUser!.email!] as! [String:Any]
-        db.collection("\(Auth.auth().currentUser!.uid)_CART").document("\(title)+\(uuid)").setData(firestorePost) {err in
+        db.collection("\(Auth.auth().currentUser!.uid)_CART").document("\(title)\(uuid)").setData(firestorePost) {err in
             if let err = err {
                 self.delegate?.errorOcurred(err)
                 print("error")
